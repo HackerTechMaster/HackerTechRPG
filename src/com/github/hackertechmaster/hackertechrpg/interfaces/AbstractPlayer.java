@@ -3,8 +3,8 @@ package com.github.hackertechmaster.hackertechrpg.interfaces;
 import com.github.hackertechmaster.hackertechrpg.util.Area;
 
 public abstract class AbstractPlayer extends AbstractEntity {
-    public AbstractPlayer(Area area) {
-        super(area);
+    public AbstractPlayer(String name, Area area) {
+        super(name, area);
     }
 
     /**

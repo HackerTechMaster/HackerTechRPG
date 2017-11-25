@@ -7,15 +7,13 @@ import com.github.hackertechmaster.hackertechrpg.util.Area;
 public class Player extends AbstractPlayer {
     private static int ENERGY_CAPACITY = 20;
 
-    private String name;
     private int money;
     private int energyAvailable;
     private int energyCapacity;
     private AbstractInventory inventory;
 
-    public Player(Area area, String name, AbstractInventory inventory) {
-        super(area);
-        this.name = name;
+    public Player(String name, Area area, AbstractInventory inventory) {
+        super(name, area);
         this.money = 0;
         this.energyAvailable = 20;
         this.energyCapacity = ENERGY_CAPACITY;
@@ -48,12 +46,12 @@ public class Player extends AbstractPlayer {
     }
 
     @Override
-    public String getName() {
-        return name;
+    public AbstractInventory getInventory() {
+        return inventory;
     }
 
     @Override
-    public AbstractInventory getInventory() {
-        return inventory;
+    public void show() {
+        //
     }
 }
