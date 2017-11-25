@@ -30,4 +30,10 @@ public abstract class AbstractItem implements IPrintable {
      * @return 该物品当前数量,小于零且存在于NPC背包中则代表收购，其他情况不允许出现小于零的数
      */
     public abstract int stackAvailable();
+
+    /**
+     * 设置该物品当前数量
+     * @param stackAvailable
+     */
+    public abstract void setStackAvailable(int stackAvailable);
 }
