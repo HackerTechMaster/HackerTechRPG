@@ -18,11 +18,11 @@ public abstract class AbstractPlayerManager implements IPrintable {
     /**
      * @return 返回当前激活的玩家
      */
-    public abstract IPlayer getCurrentPlayer();
+    public abstract AbstractPlayer getCurrentPlayer();
 
     /**
      * @param name 人物名
      * @return 用户
      */
-    public abstract IPlayer findPlayerByName(String name);
+    public abstract AbstractPlayer findPlayerByName(String name);
 }

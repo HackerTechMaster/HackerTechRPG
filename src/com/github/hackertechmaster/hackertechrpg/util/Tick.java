@@ -1,9 +1,11 @@
 package com.github.hackertechmaster.hackertechrpg.util;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerManager;
-import com.github.hackertechmaster.hackertechrpg.interfaces.IPlayer;
+import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
 
 import java.util.concurrent.TimeUnit;
+
+import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public class Tick {
     //毫秒为单位
@@ -19,7 +21,7 @@ public class Tick {
 
     public void handleTickEvent() {
         this.currentTime = System.currentTimeMillis();
-        IPlayer player = playerManager.getCurrentPlayer();
+        AbstractPlayer player = playerManager.getCurrentPlayer();
         player.setEnergyAvailable(player.getEnergyCapacity() + 1);
         final int previousEnergy = player.getEnergyAvailable();
         if(previousEnergy < player.getEnergyCapacity()) {
@@ -29,6 +31,6 @@ public class Tick {
 
     public void showTimePassed() {
         long secondsPassed = TimeUnit.MILLISECONDS.toSeconds(currentTime-startTime);
-        Console.I.println(String.format("距游戏开始已经过去了%d秒", secondsPassed));
+        println(String.format("距游戏开始已经过去了%d秒", secondsPassed));
     }
 }

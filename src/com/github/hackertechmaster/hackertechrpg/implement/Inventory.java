@@ -5,6 +5,7 @@ import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractItem;
 
 import java.util.*;
 
+import static com.github.hackertechmaster.hackertechrpg.util.Console.print;
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public class Inventory extends AbstractInventory {
@@ -26,6 +27,16 @@ public class Inventory extends AbstractInventory {
     @Override
     public Map<Integer, AbstractItem> getSlots() {
         return slots;
+    }
+
+    @Override
+    public boolean setSlot(int index, AbstractItem item) {
+        if(index < size) {
+            slots.put(index, item);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -91,8 +102,8 @@ public class Inventory extends AbstractInventory {
         slots.entrySet().forEach(entry -> {
             final int index = entry.getKey();
             final AbstractItem item = entry.getValue();
-            println(String.format("[%d] %s .. %d/%d",
-                    entry.getKey(), item.getName(), item.stackAvailable(), item.stackCapacity() ));
+            print(String.format("[%d] ", index));
+            item.show();
         });
     }
 }

@@ -1,9 +1,10 @@
 package com.github.hackertechmaster.hackertechrpg.implement;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractInventory;
-import com.github.hackertechmaster.hackertechrpg.interfaces.IPlayer;
+import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
+import com.github.hackertechmaster.hackertechrpg.util.Area;
 
-public class Player implements IPlayer {
+public class Player extends AbstractPlayer {
     private static int ENERGY_CAPACITY = 20;
 
     private String name;
@@ -12,7 +13,8 @@ public class Player implements IPlayer {
     private int energyCapacity;
     private AbstractInventory inventory;
 
-    public Player(String name, AbstractInventory inventory) {
+    public Player(Area area, String name, AbstractInventory inventory) {
+        super(area);
         this.name = name;
         this.money = 0;
         this.energyAvailable = 20;

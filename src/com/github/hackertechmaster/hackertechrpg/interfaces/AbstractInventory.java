@@ -14,6 +14,13 @@ public abstract class AbstractInventory implements IPrintable {
     public abstract Map<Integer, AbstractItem> getSlots();
 
     /**
+     * @param index 槽位
+     * @param item 物品
+     * @return 是否放置成功
+     */
+    public abstract boolean setSlot(int index, AbstractItem item);
+
+    /**
      * 将所有同类物品尽量堆叠在一起
      */
     public abstract void compact();
