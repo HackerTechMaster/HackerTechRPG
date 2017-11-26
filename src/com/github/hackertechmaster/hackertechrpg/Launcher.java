@@ -3,32 +3,41 @@ package com.github.hackertechmaster.hackertechrpg;
 import com.github.hackertechmaster.hackertechrpg.implement.items.Apple;
 import com.github.hackertechmaster.hackertechrpg.implement.items.Knife;
 import com.github.hackertechmaster.hackertechrpg.implement.items.OrangeJuice;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerManager;
-import com.github.hackertechmaster.hackertechrpg.util.ItemManager;
-import com.github.hackertechmaster.hackertechrpg.util.Map;
-import com.github.hackertechmaster.hackertechrpg.util.PlayerManager;
+import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerRegistry;
+import com.github.hackertechmaster.hackertechrpg.ui.EntryUI;
+import com.github.hackertechmaster.hackertechrpg.util.GameMap;
+import com.github.hackertechmaster.hackertechrpg.util.ItemRegistry;
+import com.github.hackertechmaster.hackertechrpg.util.PlayerRegistry;
 import com.github.hackertechmaster.hackertechrpg.util.Tick;
 
+import java.util.Scanner;
+
 public class Launcher {
-    public static AbstractPlayerManager playerManager;
-    public static ItemManager itemManager;
-    public static Map map;
+    public static AbstractPlayerRegistry playerManager;
+    public static ItemRegistry itemRegistry;
+    public static GameMap gameMap;
     public static Tick tick;
+    public static Scanner scanner;
 
     static {
-        playerManager = new PlayerManager();
-        itemManager = new ItemManager();
-        map = new Map(playerManager);
+        playerManager = new PlayerRegistry();
+        itemRegistry = new ItemRegistry();
+        gameMap = new GameMap(playerManager);
         tick = new Tick(playerManager);
+        scanner = new Scanner(System.in);
 
-        itemManager.register("Apple", Apple.class);
-        itemManager.register("Knife", Knife.class);
-        itemManager.register("OrangeJuice", OrangeJuice.class);
+        itemRegistry.register("Apple", Apple.class);
+        itemRegistry.register("Knife", Knife.class);
+        itemRegistry.register("OrangeJuice", OrangeJuice.class);
     }
 
     public static void main(String[] args) {
-        //显示注册登录菜单
+        //显示程序主入口菜单（注册/登录）
+        EntryUI.INSTANCE.start();
         //登陆后新开一个线程，定期执行handleTickEvent
-        //显示操作菜单(地图-移动-查看，背包-查看，NPC-出售-购买-查看)
+    }
+
+    public static void quit() {
+        //
     }
 }

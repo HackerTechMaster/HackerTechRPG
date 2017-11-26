@@ -3,14 +3,14 @@ package com.github.hackertechmaster.hackertechrpg.util;
 import com.github.hackertechmaster.hackertechrpg.implement.Inventory;
 import com.github.hackertechmaster.hackertechrpg.implement.Player;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerManager;
+import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerRegistry;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
-public class PlayerManager extends AbstractPlayerManager {
+public class PlayerRegistry extends AbstractPlayerRegistry {
     private AbstractPlayer currentPlayer;
     private final Map<String, AbstractPlayer> playerMap = new HashMap<>();
 

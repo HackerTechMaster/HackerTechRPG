@@ -66,7 +66,7 @@ public class Inventory extends AbstractInventory {
                 return true;
             }
         }
-        AbstractItem itemFromName = Launcher.itemManager.getItemByName(name, amount);
+        AbstractItem itemFromName = Launcher.itemRegistry.getItemByName(name, amount);
         int stackCapacity = itemFromName.stackCapacity();
         //测试是否可以堆叠
         final int remainSpaceToStack = slots.values()

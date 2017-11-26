@@ -1,4 +1,4 @@
-package com.github.hackertechmaster.hackertechrpg.implement;
+package com.github.hackertechmaster.hackertechrpg.ui;
 
 import com.github.hackertechmaster.hackertechrpg.Launcher;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractNpc;
@@ -8,16 +8,26 @@ import com.github.hackertechmaster.hackertechrpg.interfaces.ICart;
 
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
-public class Cart implements ICart {
+public class CartUI implements GameUserInterface, ICart {
     private final AbstractNpc npc;
 
-    private Cart(AbstractNpc npc) {
+    private CartUI(AbstractNpc npc) {
         this.npc = npc;
     }
 
     @Override
     public ICart of(AbstractNpc npc) {
-        return new Cart(npc);
+        return new CartUI(npc);
+    }
+
+    @Override
+    public void showMenu() {
+        //
+    }
+
+    @Override
+    public void handleInput(int input) {
+        //
     }
 
     @Override
@@ -42,8 +52,6 @@ public class Cart implements ICart {
         });
     }
 
-    //FIXME 暂时只支持整个同类的物品打包买卖
-
     @Override
     public int purchaseItem(AbstractPlayer player, String name, int amount) {
         return npc.getShopMap().entrySet()
@@ -66,7 +74,7 @@ public class Cart implements ICart {
                         if(player.getInventory().hasPlaceFor(name, amount)) {
                             player.setMoney(moneyRemain - price*amount); //扣钱
                             entry.setValue(sellingAmount - amount); //更新NPC出售信息
-                            player.getInventory().putItem(Launcher.itemManager.getItemByName(name, amount)); //更新玩家背包
+                            player.getInventory().putItem(Launcher.itemRegistry.getItemByName(name, amount)); //更新玩家背包
                             return OK;
                         } else {
                             return INVENTORY_FULL;

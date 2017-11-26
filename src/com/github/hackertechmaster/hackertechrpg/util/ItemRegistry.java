@@ -5,10 +5,10 @@ import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractItem;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ItemManager {
+public class ItemRegistry {
     private Map<String, Class<? extends AbstractItem>> itemMap = new HashMap<>();
 
-    public ItemManager() {}
+    public ItemRegistry() {}
 
     public void register(String name, Class<? extends AbstractItem> itemClass) {
         itemMap.put(name, itemClass);

@@ -2,20 +2,20 @@ package com.github.hackertechmaster.hackertechrpg.util;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractNpc;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerManager;
+import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerRegistry;
 import com.github.hackertechmaster.hackertechrpg.interfaces.IPrintable;
 
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
-public class Map implements IPrintable {
+public class GameMap implements IPrintable {
     private static final int MOVE_ENERGY = 5;
     private static final int OK = 0;
     private static final int ENERGY_NOT_ENOUGH = 1;
     private static final int ALREADY_THERE = 2;
 
-    private final AbstractPlayerManager playerManager;
+    private final AbstractPlayerRegistry playerManager;
 
-    public Map(AbstractPlayerManager playerManager) {
+    public GameMap(AbstractPlayerRegistry playerManager) {
         this.playerManager = playerManager;
     }
 
@@ -41,7 +41,7 @@ public class Map implements IPrintable {
 
     @Override
     public void show() {
-        println("=== Map ===");
+        println("=== GameMap ===");
         for(Area area : Area.values()) {
             println(area.getAreaName());
         }

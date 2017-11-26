@@ -1,6 +1,6 @@
 package com.github.hackertechmaster.hackertechrpg.interfaces;
 
-public abstract class AbstractPlayerManager implements IPrintable {
+public abstract class AbstractPlayerRegistry implements IPrintable {
     /**
      * 暂时不需要密码
      * @param name 人物名
