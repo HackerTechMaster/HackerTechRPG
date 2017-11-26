@@ -8,12 +8,12 @@ import com.github.hackertechmaster.hackertechrpg.interfaces.IPrintable;
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public class Map implements IPrintable {
-    private static final int MOVE_ENERTY = 5;
+    private static final int MOVE_ENERGY = 5;
     private static final int OK = 0;
     private static final int ENERGY_NOT_ENOUGH = 1;
     private static final int ALREADY_THERE = 2;
 
-    private AbstractPlayerManager playerManager;
+    private final AbstractPlayerManager playerManager;
 
     public Map(AbstractPlayerManager playerManager) {
         this.playerManager = playerManager;
@@ -21,10 +21,10 @@ public class Map implements IPrintable {
 
     public int movePlayer(AbstractPlayer player, Area toArea) {
         final int energyAvailable = player.getEnergyAvailable();
-        if(energyAvailable >= MOVE_ENERTY) {
+        if(energyAvailable >= MOVE_ENERGY) {
             final Area fromArea = player.getArea();
             if(fromArea != toArea) {
-                player.setEnergyAvailable(energyAvailable - MOVE_ENERTY);
+                player.setEnergyAvailable(energyAvailable - MOVE_ENERGY);
                 player.setArea(toArea);
                 return OK;
             } else {

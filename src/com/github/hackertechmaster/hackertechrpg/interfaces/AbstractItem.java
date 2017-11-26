@@ -4,9 +4,9 @@ import static com.github.hackertechmaster.hackertechrpg.util.Console.print;
 
 public abstract class AbstractItem implements IPrintable {
     private int stackAvailable;
-    private ItemType type;
-    private String name;
-    private int stackCapacity;
+    private final ItemType type;
+    private final String name;
+    private final int stackCapacity;
 
     public AbstractItem(String name, ItemType type, int stackCapacity, int stackAvailable) {
         this.name = name;
@@ -55,8 +55,7 @@ public abstract class AbstractItem implements IPrintable {
     }
 
     /**
-     * 设置该物品当前数量
-     * @param stackAvailable
+     * @param stackAvailable 新的物品当前数量
      */
     public void setStackAvailable(int stackAvailable) {
         this.stackAvailable = stackAvailable;

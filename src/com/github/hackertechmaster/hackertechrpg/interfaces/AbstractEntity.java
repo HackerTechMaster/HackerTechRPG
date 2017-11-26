@@ -3,7 +3,7 @@ package com.github.hackertechmaster.hackertechrpg.interfaces;
 import com.github.hackertechmaster.hackertechrpg.util.Area;
 
 public abstract class AbstractEntity implements IEntity, IPrintable {
-    private String name;
+    private final String name;
     private Area area;
 
     public AbstractEntity(String name, Area area) {

@@ -13,13 +13,13 @@ import static com.github.hackertechmaster.hackertechrpg.util.Console.print;
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public class Inventory extends AbstractInventory {
-    private static int INVENTORY_NORMAL_SIZE = 5;
+    private static final int INVENTORY_NORMAL_SIZE = 5;
 
-    private static int NO_MERGE = 0;
-    private static int PARTIAL_MERGE = 1;
-    private static int FULL_MERGE = 2;
+    private static final int NO_MERGE = 0;
+    private static final int PARTIAL_MERGE = 1;
+    private static final int FULL_MERGE = 2;
 
-    private int size;
+    private final int size;
     private Map<Integer, AbstractItem> slots;
 
     public Inventory() {
@@ -200,9 +200,8 @@ public class Inventory extends AbstractInventory {
     @Override
     public void show() {
         println("=== Inventory ===");
-        slots.entrySet().forEach(entry -> {
-            final int index = entry.getKey();
-            final AbstractItem item = entry.getValue();
+        slots.forEach((key, item) -> {
+            final int index = key;
             print(String.format("[%d] ", index));
             item.show();
         });

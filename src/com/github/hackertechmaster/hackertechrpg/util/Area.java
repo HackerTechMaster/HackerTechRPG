@@ -7,7 +7,7 @@ public enum Area {
     SUPERMARKET("黎明超市"),
     LIBRARY("湛星图书馆");
 
-    private String areaName;
+    private final String areaName;
     Area(String areaName) {
         this.areaName = areaName;
     }

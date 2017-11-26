@@ -16,7 +16,7 @@ public abstract class AbstractNpc extends AbstractEntity {
 
     /**
      * 设置剩余货币
-     * @param cnt
+     * @param cnt 新的货币数值
      */
     public abstract void setMoney(int cnt);
 

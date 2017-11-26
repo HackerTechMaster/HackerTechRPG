@@ -12,7 +12,7 @@ import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public class PlayerManager extends AbstractPlayerManager {
     private AbstractPlayer currentPlayer;
-    private Map<String, AbstractPlayer> playerMap = new HashMap<>();
+    private final Map<String, AbstractPlayer> playerMap = new HashMap<>();
 
     @Override
     public boolean register(String name) {

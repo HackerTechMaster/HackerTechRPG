@@ -5,7 +5,7 @@ import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
 import com.github.hackertechmaster.hackertechrpg.util.Area;
 
 public class Player extends AbstractPlayer {
-    private static int ENERGY_CAPACITY = 20;
+    private static final int ENERGY_CAPACITY = 20;
 
     private int money;
     private int energyAvailable;

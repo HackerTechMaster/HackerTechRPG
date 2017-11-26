@@ -8,7 +8,7 @@ import com.github.hackertechmaster.hackertechrpg.interfaces.ICart;
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public class Cart implements ICart {
-    private AbstractNpc npc;
+    private final AbstractNpc npc;
 
     private Cart(AbstractNpc npc) {
         this.npc = npc;
@@ -22,9 +22,9 @@ public class Cart implements ICart {
     @Override
     public void showAllItemsInfo() {
         println("=== AllItems ===");
-        npc.getShopMap().entrySet().forEach(entry -> {
-            String itemName = entry.getKey().getName();
-            int requireAmount = entry.getValue();
+        npc.getShopMap().forEach((key, value) -> {
+            String itemName = key.getName();
+            int requireAmount = value;
             println(String.format("[%s] .. %d", itemName, requireAmount));
         });
     }
@@ -33,7 +33,7 @@ public class Cart implements ICart {
 
     @Override
     public int purchaseItem(AbstractPlayer player, String name) {
-        int result = npc.getShopMap().entrySet()
+        return npc.getShopMap().entrySet()
                 .stream()
                 .filter(entry -> entry.getKey().getName().equals(name))
                 .findAny()
@@ -59,13 +59,11 @@ public class Cart implements ICart {
                         return MONEY_NOT_ENOUGH;
                     }
                 }).orElse(ITEM_NOT_FOUND);
-
-        return result;
     }
 
     @Override
     public int sellItem(AbstractPlayer player, String name) {
-        int result = npc.getShopMap().entrySet()
+        return npc.getShopMap().entrySet()
                 .stream()
                 .filter(entry -> entry.getKey().getName().equals(name))
                 .findAny()
@@ -87,7 +85,5 @@ public class Cart implements ICart {
                         return ITEM_NOT_ENOUGH;
                     }
                 }).orElse(ITEM_NOT_FOUND);
-
-        return result;
     }
 }

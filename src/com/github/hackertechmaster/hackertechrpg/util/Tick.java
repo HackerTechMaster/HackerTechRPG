@@ -9,15 +9,15 @@ import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public class Tick {
     //毫秒为单位
-    private long startTime;
+    private final long startTime;
     private long currentTime;
-    private AbstractPlayerManager playerManager;
+    private final AbstractPlayerManager playerManager;
 
     public Tick(AbstractPlayerManager playerManager) {
         this.startTime = System.currentTimeMillis();
         this.currentTime = startTime;
         this.playerManager = playerManager;
-    };
+    }
 
     public void handleTickEvent() {
         this.currentTime = System.currentTimeMillis();
