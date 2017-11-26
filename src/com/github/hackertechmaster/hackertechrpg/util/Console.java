@@ -1,8 +1,6 @@
 package com.github.hackertechmaster.hackertechrpg.util;
 
 public class Console {
-   //public static Console I = new Console();
-
     private Console() {}
 
     public static void print(String message) {

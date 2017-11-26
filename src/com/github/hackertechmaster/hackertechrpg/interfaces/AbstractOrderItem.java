@@ -1,6 +1,6 @@
 package com.github.hackertechmaster.hackertechrpg.interfaces;
 
-public abstract class AbstractOrderItem extends AbstractItem {
+public class AbstractOrderItem extends AbstractItem {
     private int price;
 
     public AbstractOrderItem(String name, ItemType type, int stackCapacity, int stackAvailable, int price) {

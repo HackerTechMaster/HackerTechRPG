@@ -1,5 +1,6 @@
 package com.github.hackertechmaster.hackertechrpg.interfaces;
 
+import com.github.hackertechmaster.hackertechrpg.implement.OrderItem;
 import com.github.hackertechmaster.hackertechrpg.util.Area;
 
 import java.util.Map;

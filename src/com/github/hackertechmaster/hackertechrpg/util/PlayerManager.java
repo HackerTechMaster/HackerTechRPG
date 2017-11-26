@@ -1,8 +1,9 @@
-package com.github.hackertechmaster.hackertechrpg.implement;
+package com.github.hackertechmaster.hackertechrpg.util;
 
+import com.github.hackertechmaster.hackertechrpg.implement.Inventory;
+import com.github.hackertechmaster.hackertechrpg.implement.Player;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerManager;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
-import com.github.hackertechmaster.hackertechrpg.util.Area;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +19,7 @@ public class PlayerManager extends AbstractPlayerManager {
         if(playerMap.containsKey(name)) {
             return false;
         } else {
-            playerMap.put(name, new Player(Area.DORMITORY ,name, new Inventory()));
+            playerMap.put(name, new Player(name, Area.DORMITORY, new Inventory()));
             return true;
         }
     }
