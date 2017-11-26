@@ -1,13 +1,13 @@
 package com.github.hackertechmaster.hackertechrpg;
 
-import com.github.hackertechmaster.hackertechrpg.implement.items.Apple;
-import com.github.hackertechmaster.hackertechrpg.implement.items.Knife;
-import com.github.hackertechmaster.hackertechrpg.implement.items.OrangeJuice;
+import com.github.hackertechmaster.hackertechrpg.objects.items.Apple;
+import com.github.hackertechmaster.hackertechrpg.objects.items.Knife;
+import com.github.hackertechmaster.hackertechrpg.objects.items.OrangeJuice;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerRegistry;
 import com.github.hackertechmaster.hackertechrpg.ui.EntryUI;
 import com.github.hackertechmaster.hackertechrpg.util.GameMap;
-import com.github.hackertechmaster.hackertechrpg.util.ItemRegistry;
-import com.github.hackertechmaster.hackertechrpg.util.PlayerRegistry;
+import com.github.hackertechmaster.hackertechrpg.registry.ItemRegistry;
+import com.github.hackertechmaster.hackertechrpg.registry.PlayerRegistry;
 import com.github.hackertechmaster.hackertechrpg.util.Tick;
 
 import java.util.Scanner;

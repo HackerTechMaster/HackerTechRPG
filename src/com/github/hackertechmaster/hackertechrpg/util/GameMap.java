@@ -4,6 +4,7 @@ import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractNpc;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerRegistry;
 import com.github.hackertechmaster.hackertechrpg.interfaces.IPrintable;
+import com.github.hackertechmaster.hackertechrpg.objects.Area;
 
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 

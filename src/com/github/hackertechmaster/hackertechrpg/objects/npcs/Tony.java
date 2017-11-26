@@ -1,11 +1,11 @@
-package com.github.hackertechmaster.hackertechrpg.implement.npcs;
+package com.github.hackertechmaster.hackertechrpg.objects.npcs;
 
-import com.github.hackertechmaster.hackertechrpg.implement.Npc;
-import com.github.hackertechmaster.hackertechrpg.implement.OrderItem;
-import com.github.hackertechmaster.hackertechrpg.implement.items.Apple;
-import com.github.hackertechmaster.hackertechrpg.implement.items.Knife;
+import com.github.hackertechmaster.hackertechrpg.objects.Npc;
+import com.github.hackertechmaster.hackertechrpg.objects.OrderItem;
+import com.github.hackertechmaster.hackertechrpg.objects.items.Apple;
+import com.github.hackertechmaster.hackertechrpg.objects.items.Knife;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractOrderItem;
-import com.github.hackertechmaster.hackertechrpg.util.Area;
+import com.github.hackertechmaster.hackertechrpg.objects.Area;
 
 import java.util.HashMap;
 import java.util.Map;

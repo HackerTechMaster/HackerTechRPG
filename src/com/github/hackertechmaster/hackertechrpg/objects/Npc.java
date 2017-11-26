@@ -1,9 +1,8 @@
-package com.github.hackertechmaster.hackertechrpg.implement;
+package com.github.hackertechmaster.hackertechrpg.objects;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractInventory;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractNpc;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractOrderItem;
-import com.github.hackertechmaster.hackertechrpg.util.Area;
 
 import java.util.Map;
 

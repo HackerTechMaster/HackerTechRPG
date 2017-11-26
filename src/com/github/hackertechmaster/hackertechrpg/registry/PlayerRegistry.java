@@ -1,7 +1,8 @@
-package com.github.hackertechmaster.hackertechrpg.util;
+package com.github.hackertechmaster.hackertechrpg.registry;
 
-import com.github.hackertechmaster.hackertechrpg.implement.Inventory;
-import com.github.hackertechmaster.hackertechrpg.implement.Player;
+import com.github.hackertechmaster.hackertechrpg.objects.Area;
+import com.github.hackertechmaster.hackertechrpg.objects.Inventory;
+import com.github.hackertechmaster.hackertechrpg.objects.Player;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerRegistry;
 

@@ -1,6 +1,6 @@
 package com.github.hackertechmaster.hackertechrpg.interfaces;
 
-import com.github.hackertechmaster.hackertechrpg.util.Area;
+import com.github.hackertechmaster.hackertechrpg.objects.Area;
 
 import java.util.Map;
 

@@ -1,6 +1,6 @@
 package com.github.hackertechmaster.hackertechrpg.interfaces;
 
-import com.github.hackertechmaster.hackertechrpg.util.Area;
+import com.github.hackertechmaster.hackertechrpg.objects.Area;
 
 public abstract class AbstractPlayer extends AbstractEntity {
     public AbstractPlayer(String name, Area area) {

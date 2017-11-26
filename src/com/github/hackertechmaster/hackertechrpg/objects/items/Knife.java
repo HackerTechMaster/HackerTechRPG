@@ -1,4 +1,4 @@
-package com.github.hackertechmaster.hackertechrpg.implement.items;
+package com.github.hackertechmaster.hackertechrpg.objects.items;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractItem;
 

@@ -1,4 +1,4 @@
-package com.github.hackertechmaster.hackertechrpg.util;
+package com.github.hackertechmaster.hackertechrpg.registry;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractItem;
 

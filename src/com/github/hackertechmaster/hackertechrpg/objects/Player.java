@@ -1,8 +1,7 @@
-package com.github.hackertechmaster.hackertechrpg.implement;
+package com.github.hackertechmaster.hackertechrpg.objects;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractInventory;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
-import com.github.hackertechmaster.hackertechrpg.util.Area;
 
 public class Player extends AbstractPlayer {
     private static final int ENERGY_CAPACITY = 20;
