@@ -1,5 +1,7 @@
 package com.github.hackertechmaster.hackertechrpg.interfaces;
 
+import com.github.hackertechmaster.hackertechrpg.util.ItemManager;
+
 import static com.github.hackertechmaster.hackertechrpg.util.Console.print;
 
 public abstract class AbstractItem implements IPrintable {
@@ -14,7 +16,6 @@ public abstract class AbstractItem implements IPrintable {
         this.stackCapacity = stackCapacity;
         this.stackAvailable = stackAvailable;
     }
-
 
     /**
      * 枚举类，物品类型

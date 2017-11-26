@@ -32,7 +32,7 @@ public abstract class AbstractInventory implements IPrintable {
      */
     public abstract int getItemCount(String name);
 
-    public abstract boolean hasPlaceFor(AbstractItem newItem);
+    public abstract boolean hasPlaceFor(String name, int amount);
 
     public abstract boolean putItem(AbstractItem item);
 

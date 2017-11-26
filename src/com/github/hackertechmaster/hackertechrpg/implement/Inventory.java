@@ -1,5 +1,6 @@
 package com.github.hackertechmaster.hackertechrpg.implement;
 
+import com.github.hackertechmaster.hackertechrpg.Launcher;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractInventory;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractItem;
 
@@ -58,21 +59,22 @@ public class Inventory extends AbstractInventory {
     }
 
     @Override
-    public boolean hasPlaceFor(AbstractItem newItem) {
+    public boolean hasPlaceFor(String name, int amount) {
         //先尝试找到空槽
         for (int i = 0; i < size; i++) {
             if(!slots.containsKey(i)) {
                 return true;
             }
         }
+        AbstractItem itemFromName = Launcher.itemManager.getItemByName(name, amount);
+        int stackCapacity = itemFromName.stackCapacity();
         //测试是否可以堆叠
-        final String newItemName = newItem.getName();
         final int remainSpaceToStack = slots.values()
                 .stream()
-                .filter(item -> item.getName().equals(newItemName))
-                .mapToInt(item -> item.stackCapacity()-item.stackAvailable())
+                .filter(item -> item.getName().equals(name))
+                .mapToInt(item -> stackCapacity-item.stackAvailable())
                 .sum();
-        return remainSpaceToStack > newItem.stackAvailable();
+        return remainSpaceToStack > amount;
     }
 
     @Override
