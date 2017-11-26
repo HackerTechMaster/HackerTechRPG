@@ -1,6 +1,5 @@
 package com.github.hackertechmaster.hackertechrpg.interfaces;
 
-import com.github.hackertechmaster.hackertechrpg.implement.OrderItem;
 import com.github.hackertechmaster.hackertechrpg.util.Area;
 
 import java.util.Map;
@@ -32,7 +31,7 @@ public abstract class AbstractNpc extends AbstractEntity {
     public abstract void setActive(boolean active);
 
     /**
-     * @return 商店信息（物品对应价格）
+     * @return 商店信息（物品对应数量）,数量为正则是售出，数量为负则是收购
      */
     public abstract Map<AbstractOrderItem, Integer> getShopMap();
 

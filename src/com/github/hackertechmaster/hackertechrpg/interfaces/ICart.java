@@ -1,20 +1,19 @@
 package com.github.hackertechmaster.hackertechrpg.interfaces;
 
-import java.util.Map;
-
 public interface ICart {
     int OK = 0;
     int ITEM_NOT_ENOUGH = 1; //该物品剩余数量不足
     int INVENTORY_FULL = 2; //背包已满
     int MONEY_NOT_ENOUGH = 3; //货币不足
-    int EXCEPTION = 4; //其他异常情况
+    int BUSINESS_TYPE_NOT_MATCHED = 4; //不存在该类（出售或收购）交易
+    int ITEM_NOT_FOUND = 5; //该类物品不在交易列表中
 
     /**
      * 传入商品信息，包装成商城界面，实现控制台操作
-     * @param shopMap
+     * @param npc npc实例
      * @return 包装后的商城界面
      */
-    ICart of(Map<AbstractItem, Integer> shopMap);
+    ICart of(AbstractNpc npc);
 
     /**
      * 显示所有商品信息
@@ -22,31 +21,16 @@ public interface ICart {
     void showAllItemsInfo();
 
     /**
-     * @return 玩家是否处于当前商城
-     */
-    boolean isActive();
-
-    /**
-     * 玩家打开该商城界面
-     */
-    void active();
-
-    /**
-     * 玩家离开该商城界面
-     */
-    void inactive();
-
-    /**
      * 购买物品
-     * @param index 物品id
-     * @return 购买结果，返回常量 {@value #OK}, {@value #INVENTORY_FULL}, {@value #MONEY_NOT_ENOUGH}, {@value #EXCEPTION}
+     * @param name 物品id
+     * @return 购买结果，返回常量 {@value #OK}, {@value #INVENTORY_FULL}, {@value #MONEY_NOT_ENOUGH}， {@value #BUSINESS_TYPE_NOT_MATCHED}, {@value #ITEM_NOT_FOUND}
      */
-    boolean purchaseItem(int index);
+    int purchaseItem(AbstractPlayer player, String name);
 
     /**
      * 出售物品
-     * @param index 物品id
-     * @return 出售结果，返回常量 {@value OK}, {@value ITEM_NOT_ENOUGH}, {@value #EXCEPTION}
+     * @param name 物品id
+     * @return 出售结果，返回常量 {@value OK}, {@value ITEM_NOT_ENOUGH}, {@value #BUSINESS_TYPE_NOT_MATCHED}, {@value #ITEM_NOT_FOUND}
      */
-    boolean sellItem(int index);
+    int sellItem(AbstractPlayer player, String name);
 }

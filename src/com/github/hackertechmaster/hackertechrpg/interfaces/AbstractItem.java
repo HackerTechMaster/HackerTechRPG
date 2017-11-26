@@ -66,4 +66,20 @@ public abstract class AbstractItem implements IPrintable {
     public void show() {
         print(String.format("%s .. %d/%d", name, stackAvailable, stackCapacity));
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == this) return true;
+        if(obj instanceof AbstractItem) {
+            AbstractItem item = (AbstractItem) obj;
+            return this.name.equals(item.name);
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return this.name.hashCode();
+    }
 }

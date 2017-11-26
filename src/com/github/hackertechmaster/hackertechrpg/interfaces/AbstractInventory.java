@@ -31,4 +31,12 @@ public abstract class AbstractInventory implements IPrintable {
      * @return 数量
      */
     public abstract int getItemCount(String name);
+
+    public abstract boolean hasPlaceFor(AbstractItem newItem);
+
+    public abstract boolean putItem(AbstractItem item);
+
+    public abstract void clearItem(String name);
+
+    public abstract void removeItem(String name, int amount);
 }

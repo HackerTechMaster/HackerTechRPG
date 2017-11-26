@@ -1,7 +1,7 @@
 package com.github.hackertechmaster.hackertechrpg.util;
 
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerManager;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
+import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerManager;
 
 import java.util.concurrent.TimeUnit;
 

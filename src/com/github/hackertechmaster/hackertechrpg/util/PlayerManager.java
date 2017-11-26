@@ -2,8 +2,8 @@ package com.github.hackertechmaster.hackertechrpg.util;
 
 import com.github.hackertechmaster.hackertechrpg.implement.Inventory;
 import com.github.hackertechmaster.hackertechrpg.implement.Player;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerManager;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
+import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerManager;
 
 import java.util.HashMap;
 import java.util.Map;
