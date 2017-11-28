@@ -95,7 +95,7 @@ public class CartUI extends BaseUI implements ICart {
         String itemName = order.getItemName();
         if(!npc.getOrders().contains(order)) return BusinessResult.ITEM_NOT_FOUND;
         int sellingAmount = order.getAmount();
-        if(order.getBusinessType() == SELLING) {
+        if(order.getBusinessType() != SELLING) {
             //该类商品交易类型应为收购，所以无法玩家无法从此处购买物品
             return BusinessResult.BUSINESS_TYPE_NOT_MATCHED;
         } else if(sellingAmount < amount) {
@@ -127,7 +127,7 @@ public class CartUI extends BaseUI implements ICart {
         String itemName = order.getItemName();
         if(!npc.getOrders().contains(order)) return BusinessResult.ITEM_NOT_FOUND;
         int buyingAmount = order.getAmount();
-        if(order.getBusinessType() == BUYING) {
+        if(order.getBusinessType() != BUYING) {
             //该类商品交易类型应为出售，所以无法玩家无法从此处售出物品
             return BusinessResult.BUSINESS_TYPE_NOT_MATCHED;
         } else if(buyingAmount < amount) {

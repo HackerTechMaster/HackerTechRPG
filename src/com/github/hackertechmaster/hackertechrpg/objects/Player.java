@@ -14,8 +14,8 @@ public class Player extends AbstractPlayer {
 
     public Player(String name, Area area, AbstractInventory inventory) {
         super(name, area);
-        this.money = 0;
-        this.energyAvailable = 20;
+        this.money = 100;
+        this.energyAvailable = ENERGY_CAPACITY;
         this.energyCapacity = ENERGY_CAPACITY;
         this.inventory = inventory;
     }

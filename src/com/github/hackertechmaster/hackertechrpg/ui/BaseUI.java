@@ -15,6 +15,7 @@ public abstract class BaseUI implements GameUserInterface {
     }
 
     public void handleHelp() {
+        println("移动到不同的地区交易不同的物品来赚取节操~");
         println("[m] 地图  [i] 背包");
         println("[h] 帮助  [q] 退出");
         println("[b] 回到上一级菜单");

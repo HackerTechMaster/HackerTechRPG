@@ -27,7 +27,8 @@ public class MapUI extends BaseUI {
         int index = 0;
         for(Area area : Area.values()) {
             char ch = (char) (index+NUMBER_TO_CHAR_OFFSET);
-            Console.println(String.format("[%c] %s", ch, area.getAreaName()));
+            Console.println(String.format("[%c] %s (该地区有%d个NPC)",
+                    ch, area.getAreaName(), Launcher.npcRegistry.getNpcsInArea(area).size()));
             charToArea.put(ch, area);
             index++;
         }
@@ -40,7 +41,11 @@ public class MapUI extends BaseUI {
         if(areaFound) {
             GameMap.MoveResult moveResult = Launcher.gameMap.movePlayer(Launcher.playerRegistry.getCurrentPlayer(), area);
             Console.println(moveResult.getDescription());
-            start();
+            if(moveResult == GameMap.MoveResult.OK) {
+                handleBack();
+            } else {
+                start();
+            }
         } else {
             super.handleInput(input);
         }

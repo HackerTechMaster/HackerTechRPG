@@ -5,7 +5,9 @@ import com.github.hackertechmaster.hackertechrpg.objects.GameMap;
 import com.github.hackertechmaster.hackertechrpg.objects.items.Apple;
 import com.github.hackertechmaster.hackertechrpg.objects.items.Knife;
 import com.github.hackertechmaster.hackertechrpg.objects.items.OrangeJuice;
+import com.github.hackertechmaster.hackertechrpg.objects.npcs.Liaolun;
 import com.github.hackertechmaster.hackertechrpg.objects.npcs.Tony;
+import com.github.hackertechmaster.hackertechrpg.objects.npcs.Xiaosan;
 import com.github.hackertechmaster.hackertechrpg.registry.ItemRegistry;
 import com.github.hackertechmaster.hackertechrpg.registry.NpcRegistry;
 import com.github.hackertechmaster.hackertechrpg.registry.PlayerRegistry;
@@ -34,6 +36,8 @@ public class Launcher {
         itemRegistry.register(new Knife());
         itemRegistry.register(new OrangeJuice());
         npcRegistry.register(new Tony());
+        npcRegistry.register(new Liaolun());
+        npcRegistry.register(new Xiaosan());
     }
 
     public static void main(String[] args) {
