@@ -1,8 +1,8 @@
 package com.github.hackertechmaster.hackertechrpg.objects.items;
 
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractItem;
+import com.github.hackertechmaster.hackertechrpg.objects.Item;
 
-public class Knife extends AbstractItem {
+public class Knife extends Item {
     public Knife() {
         this(1);
     }

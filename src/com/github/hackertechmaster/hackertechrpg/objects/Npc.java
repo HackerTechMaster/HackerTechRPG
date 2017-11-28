@@ -2,20 +2,20 @@ package com.github.hackertechmaster.hackertechrpg.objects;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractInventory;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractNpc;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractOrderItem;
+import com.github.hackertechmaster.hackertechrpg.interfaces.IOrderEntry;
 
-import java.util.Map;
+import java.util.List;
 
 public class Npc extends AbstractNpc {
     private int money;
     private boolean active;
-    private Map<AbstractOrderItem, Integer> shopMap;
+    private List<IOrderEntry> orders;
 
-    public Npc(String name, Area area, int money, boolean active, Map<AbstractOrderItem, Integer> shopMap) {
+    public Npc(String name, Area area, int money, boolean active, List<IOrderEntry> orders) {
         super(name, area);
         this.money = money;
         this.active = active;
-        this.shopMap = shopMap;
+        this.orders = orders;
     }
 
     @Override
@@ -34,18 +34,17 @@ public class Npc extends AbstractNpc {
     }
 
     @Override
-    public Map<AbstractOrderItem, Integer> getShopMap() {
-        return shopMap;
+    public List<IOrderEntry> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<IOrderEntry> orders) {
+        this.orders = orders;
     }
 
     @Override
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-    @Override
-    public void setShopMap(Map<AbstractOrderItem, Integer> shopMap) {
-        this.shopMap = shopMap;
     }
 
     @Override

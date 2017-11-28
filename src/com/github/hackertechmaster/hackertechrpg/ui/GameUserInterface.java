@@ -1,9 +1,5 @@
 package com.github.hackertechmaster.hackertechrpg.ui;
 
-import com.github.hackertechmaster.hackertechrpg.Launcher;
-
-import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
-
 public interface GameUserInterface {
     char MAP = 'm';
     char QUIT = 'q';

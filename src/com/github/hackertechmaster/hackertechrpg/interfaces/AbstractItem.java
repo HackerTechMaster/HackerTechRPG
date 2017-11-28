@@ -12,8 +12,10 @@ public abstract class AbstractItem implements IPrintable {
         this.name = name;
         this.type = type;
         this.stackCapacity = stackCapacity;
-        this.stackAvailable = stackAvailable;
+        this.stackAvailable = stackAvailable > stackCapacity ? stackCapacity : stackAvailable;
     }
+
+    public abstract AbstractItem copy(int stackAvailable);
 
     /**
      * 枚举类，物品类型
@@ -57,7 +59,7 @@ public abstract class AbstractItem implements IPrintable {
      * @param stackAvailable 新的物品当前数量
      */
     public void setStackAvailable(int stackAvailable) {
-        this.stackAvailable = stackAvailable;
+        this.stackAvailable = stackAvailable > this.stackCapacity ? this.stackCapacity : stackAvailable;
     }
 
     @Override

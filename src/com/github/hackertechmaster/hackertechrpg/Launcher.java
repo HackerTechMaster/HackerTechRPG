@@ -1,34 +1,34 @@
 package com.github.hackertechmaster.hackertechrpg;
 
+import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerRegistry;
+import com.github.hackertechmaster.hackertechrpg.objects.GameMap;
 import com.github.hackertechmaster.hackertechrpg.objects.items.Apple;
 import com.github.hackertechmaster.hackertechrpg.objects.items.Knife;
 import com.github.hackertechmaster.hackertechrpg.objects.items.OrangeJuice;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerRegistry;
-import com.github.hackertechmaster.hackertechrpg.ui.EntryUI;
-import com.github.hackertechmaster.hackertechrpg.util.GameMap;
 import com.github.hackertechmaster.hackertechrpg.registry.ItemRegistry;
 import com.github.hackertechmaster.hackertechrpg.registry.PlayerRegistry;
+import com.github.hackertechmaster.hackertechrpg.ui.EntryUI;
 import com.github.hackertechmaster.hackertechrpg.util.Tick;
 
 import java.util.Scanner;
 
 public class Launcher {
-    public static AbstractPlayerRegistry playerManager;
+    public static AbstractPlayerRegistry playerRegistry;
     public static ItemRegistry itemRegistry;
     public static GameMap gameMap;
     public static Tick tick;
     public static Scanner scanner;
 
     static {
-        playerManager = new PlayerRegistry();
+        playerRegistry = new PlayerRegistry();
         itemRegistry = new ItemRegistry();
-        gameMap = new GameMap(playerManager);
-        tick = new Tick(playerManager);
+        gameMap = new GameMap(playerRegistry);
+        tick = new Tick(playerRegistry);
         scanner = new Scanner(System.in);
 
-        itemRegistry.register("Apple", Apple.class);
-        itemRegistry.register("Knife", Knife.class);
-        itemRegistry.register("OrangeJuice", OrangeJuice.class);
+        itemRegistry.register(new Apple());
+        itemRegistry.register(new Knife());
+        itemRegistry.register(new OrangeJuice());
     }
 
     public static void main(String[] args) {

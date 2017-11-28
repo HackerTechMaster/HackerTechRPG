@@ -1,10 +1,10 @@
 package com.github.hackertechmaster.hackertechrpg.registry;
 
+import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
+import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerRegistry;
 import com.github.hackertechmaster.hackertechrpg.objects.Area;
 import com.github.hackertechmaster.hackertechrpg.objects.Inventory;
 import com.github.hackertechmaster.hackertechrpg.objects.Player;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerRegistry;
 
 import java.util.HashMap;
 import java.util.Map;

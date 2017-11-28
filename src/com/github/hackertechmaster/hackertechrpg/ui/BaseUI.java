@@ -28,11 +28,11 @@ public abstract class BaseUI implements GameUserInterface {
     }
 
     public void handleMap() {
-        //
+        Launcher.gameMap.show();
     }
 
     public void handleInventory() {
-        //
+        Launcher.playerRegistry.getCurrentPlayer().getInventory().show();
     }
 
     public void handleDefault() {

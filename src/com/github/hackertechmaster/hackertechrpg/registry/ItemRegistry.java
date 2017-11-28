@@ -6,29 +6,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ItemRegistry {
-    private Map<String, Class<? extends AbstractItem>> itemMap = new HashMap<>();
+    private Map<String, AbstractItem> itemMap = new HashMap<>();
 
     public ItemRegistry() {}
 
-    public void register(String name, Class<? extends AbstractItem> itemClass) {
-        itemMap.put(name, itemClass);
+    public void register(AbstractItem item) {
+        itemMap.put(item.getName(), item);
     }
 
     public void unregister(String name) {
         itemMap.remove(name);
     }
 
-    public AbstractItem getItemByName(String name, int stackAvailable) {
-        Class<? extends AbstractItem> clazz = itemMap.get(name);
-        if(clazz != null) {
-            try {
-                AbstractItem item = clazz.newInstance();
-                item.setStackAvailable(stackAvailable);
-                return item;
-            } catch (InstantiationException | IllegalAccessException e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
+    public AbstractItem getItem(String name) {
+        return itemMap.get(name);
+    }
+
+    public AbstractItem getItem(String name, int stackAvailable) {
+        AbstractItem item = itemMap.get(name);
+        return item==null ? null : item.copy(stackAvailable);
     }
 }

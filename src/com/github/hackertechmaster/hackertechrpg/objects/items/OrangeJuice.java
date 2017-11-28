@@ -1,8 +1,8 @@
 package com.github.hackertechmaster.hackertechrpg.objects.items;
 
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractItem;
+import com.github.hackertechmaster.hackertechrpg.objects.Item;
 
-public class OrangeJuice extends AbstractItem {
+public class OrangeJuice extends Item {
     public OrangeJuice() {
         this(1);
     }
