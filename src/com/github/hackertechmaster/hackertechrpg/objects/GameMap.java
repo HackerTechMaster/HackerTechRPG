@@ -9,9 +9,22 @@ import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public class GameMap implements IPrintable {
     private static final int MOVE_ENERGY = 5;
-    private static final int OK = 0;
-    private static final int ENERGY_NOT_ENOUGH = 1;
-    private static final int ALREADY_THERE = 2;
+
+    public enum MoveResult {
+        OK("成功"),
+        ENERGY_NOT_ENOUGH("体力不足"),
+        ALREADY_THERE("你已经在那里啦");
+
+        private String description;
+
+        MoveResult(String description) {
+            this.description = description;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+    }
 
     private final AbstractPlayerRegistry playerManager;
 
@@ -19,19 +32,19 @@ public class GameMap implements IPrintable {
         this.playerManager = playerManager;
     }
 
-    public int movePlayer(AbstractPlayer player, Area toArea) {
+    public MoveResult movePlayer(AbstractPlayer player, Area toArea) {
         final int energyAvailable = player.getEnergyAvailable();
         if(energyAvailable >= MOVE_ENERGY) {
             final Area fromArea = player.getArea();
             if(fromArea != toArea) {
                 player.setEnergyAvailable(energyAvailable - MOVE_ENERGY);
                 player.setArea(toArea);
-                return OK;
+                return MoveResult.OK;
             } else {
-                return ALREADY_THERE;
+                return MoveResult.ALREADY_THERE;
             }
         } else {
-            return ENERGY_NOT_ENOUGH;
+            return MoveResult.ENERGY_NOT_ENOUGH;
         }
     }
 
