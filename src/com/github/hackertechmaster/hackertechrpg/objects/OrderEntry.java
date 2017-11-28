@@ -15,12 +15,33 @@ public class OrderEntry implements IOrderEntry {
         this.amount = amount;
     }
 
-    public static OrderEntry sell(String itemName, int price, int amount) {
-        return new OrderEntry(itemName, price, BusinessType.SELLING, amount);
-    }
+    public static class Builder {
+        private String itemName;
+        private int price;
+        private int amount;
 
-    public static OrderEntry buy(String itemName, int price, int amount) {
-        return new OrderEntry(itemName, price, BusinessType.BUYING, amount);
+        public Builder item(String itemName) {
+            this.itemName = itemName;
+            return this;
+        }
+
+        public Builder price(int price) {
+            this.price = price;
+            return this;
+        }
+
+        public Builder amount(int amount) {
+            this.amount = amount;
+            return this;
+        }
+
+        public OrderEntry sell() {
+            return new OrderEntry(itemName, price, BusinessType.SELLING, amount);
+        }
+
+        public OrderEntry buy() {
+            return new OrderEntry(itemName, price, BusinessType.BUYING, amount);
+        }
     }
 
     @Override

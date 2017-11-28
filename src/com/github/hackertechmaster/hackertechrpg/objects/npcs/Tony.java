@@ -13,10 +13,8 @@ public class Tony extends Npc {
 
     static {
         orders = new ArrayList<>();
-        //售出10苹果 价格 2
-        orders.add(OrderEntry.sell("Apple", 2, 10));
-        //收购3小刀 价格 5
-        orders.add(OrderEntry.buy("Knife",5, 3));
+        orders.add(new OrderEntry.Builder().item("Apple").price(2).amount(10).sell());
+        orders.add(new OrderEntry.Builder().item("Knife").price(5).amount(3).buy());
     }
 
     public Tony() {
