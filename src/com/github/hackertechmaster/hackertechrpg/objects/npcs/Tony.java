@@ -13,8 +13,9 @@ public class Tony extends Npc {
 
     static {
         orders = new ArrayList<>();
-        orders.add(new OrderEntry.Builder().item("Apple").price(2).amount(10).sell());
-        orders.add(new OrderEntry.Builder().item("Knife").price(5).amount(3).buy());
+        OrderEntry.Builder builder = new OrderEntry.Builder();
+        orders.add(builder.item("Apple").price(2).amount(10).sell());
+        orders.add(builder.item("Knife").price(5).amount(3).buy());
     }
 
     public Tony() {
