@@ -1,6 +1,6 @@
 package com.github.hackertechmaster.hackertechrpg.interfaces;
 
-public interface IOrderEntry {
+public interface IOrder {
     enum BusinessType {
         BUYING("收购"),
         SELLING("出售");

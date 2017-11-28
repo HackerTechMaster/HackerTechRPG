@@ -22,10 +22,10 @@ public abstract class AbstractNpc extends AbstractEntity {
     /**
      * @return 商店订单信息
      */
-    public abstract List<IOrderEntry> getOrders();
+    public abstract List<IOrder> getOrders();
 
     /**
      * @param orders 要设置的商店订单信息
      */
-    public abstract void setOrders(List<IOrderEntry> orders);
+    public abstract void setOrders(List<IOrder> orders);
 }

@@ -7,7 +7,7 @@ import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 public abstract class BaseUI implements GameUserInterface {
     @Override
     public void start() {
-        showPlayerInfo();
+        showGameInfo();
         showMenu();
         handleInput(Launcher.scanner.next().charAt(0));
     }
@@ -62,7 +62,8 @@ public abstract class BaseUI implements GameUserInterface {
     }
 
     @Override
-    public void showPlayerInfo() {
+    public void showGameInfo() {
+        Launcher.tick.showTimePassed();
         Launcher.playerRegistry.getCurrentPlayer().show();
     }
 }

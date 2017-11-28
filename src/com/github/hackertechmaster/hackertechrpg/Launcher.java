@@ -5,7 +5,9 @@ import com.github.hackertechmaster.hackertechrpg.objects.GameMap;
 import com.github.hackertechmaster.hackertechrpg.objects.items.Apple;
 import com.github.hackertechmaster.hackertechrpg.objects.items.Knife;
 import com.github.hackertechmaster.hackertechrpg.objects.items.OrangeJuice;
+import com.github.hackertechmaster.hackertechrpg.objects.npcs.Tony;
 import com.github.hackertechmaster.hackertechrpg.registry.ItemRegistry;
+import com.github.hackertechmaster.hackertechrpg.registry.NpcRegistry;
 import com.github.hackertechmaster.hackertechrpg.registry.PlayerRegistry;
 import com.github.hackertechmaster.hackertechrpg.ui.EntryUI;
 import com.github.hackertechmaster.hackertechrpg.util.Tick;
@@ -15,6 +17,7 @@ import java.util.Scanner;
 public class Launcher {
     public static AbstractPlayerRegistry playerRegistry;
     public static ItemRegistry itemRegistry;
+    public static NpcRegistry npcRegistry;
     public static GameMap gameMap;
     public static Tick tick;
     public static Scanner scanner;
@@ -22,6 +25,7 @@ public class Launcher {
     static {
         playerRegistry = new PlayerRegistry();
         itemRegistry = new ItemRegistry();
+        npcRegistry = new NpcRegistry();
         gameMap = new GameMap(playerRegistry);
         tick = new Tick(playerRegistry);
         scanner = new Scanner(System.in);
@@ -29,6 +33,7 @@ public class Launcher {
         itemRegistry.register(new Apple());
         itemRegistry.register(new Knife());
         itemRegistry.register(new OrangeJuice());
+        npcRegistry.register(new Tony());
     }
 
     public static void main(String[] args) {
@@ -38,6 +43,7 @@ public class Launcher {
     }
 
     public static void quit() {
-        //
+        //TODO 先清理再关闭
+        System.exit(0);
     }
 }

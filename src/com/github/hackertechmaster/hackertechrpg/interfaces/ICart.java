@@ -3,13 +3,26 @@ package com.github.hackertechmaster.hackertechrpg.interfaces;
 import java.util.Map;
 
 public interface ICart {
-    int OK = 0;
-    int ITEM_NOT_ENOUGH = 1; //该物品剩余数量不足
-    int ITEM_TOO_MANY = 2; //该物品数量过多
-    int INVENTORY_FULL = 3; //背包已满
-    int MONEY_NOT_ENOUGH = 4; //货币不足
-    int ITEM_NOT_FOUND = 5; //该类物品不在交易列表中
-    int BUSINESS_TYPE_NOT_MATCHED = 6; //不存在该类（出售或收购）交易
+    enum BusinessResult {
+        OK("成功"),
+        ITEM_NOT_ENOUGH("该物品剩余数量不足"),
+        ITEM_TOO_MANY("交易数量过多"),
+        INVENTORY_FULL("背包已满"),
+        MONEY_NOT_ENOUGH("节操不足"),
+        ITEM_NOT_FOUND("该物品不在交易列表中"),
+        BUSINESS_TYPE_NOT_MATCHED("错误的交易类型"),
+        NOT_HANDLED("出现问题");
+
+        private String description;
+
+        BusinessResult(String description) {
+            this.description = description;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+    }
 
     /**
      * 返回所有商品信息
@@ -23,7 +36,7 @@ public interface ICart {
      * @param amount 购买数量
      * @return 购买结果，返回常量
      */
-    int purchaseItem(AbstractPlayer player, IOrderEntry item, int amount);
+    BusinessResult purchaseItem(AbstractPlayer player, IOrder item, int amount);
 
     /**
      * 出售物品
@@ -32,5 +45,5 @@ public interface ICart {
      * @param amount 购买数量
      * @return 出售结果，返回常量
      */
-    int sellItem(AbstractPlayer player, IOrderEntry item, int amount);
+    BusinessResult sellItem(AbstractPlayer player, IOrder item, int amount);
 }

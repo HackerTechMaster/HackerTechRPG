@@ -5,6 +5,7 @@ public interface GameUserInterface {
     char QUIT = 'q';
     char HELP = 'h';
     char INVENTORY = 'i';
+    int NUMBER_TO_CHAR_OFFSET = '0';
 
     /**
      * 显示菜单
@@ -25,5 +26,5 @@ public interface GameUserInterface {
     /**
      * 展示玩家信息
      */
-    void showPlayerInfo();
+    void showGameInfo();
 }

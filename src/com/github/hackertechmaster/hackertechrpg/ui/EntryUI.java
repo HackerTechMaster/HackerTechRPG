@@ -12,7 +12,7 @@ public final class EntryUI extends BaseUI {
     private EntryUI() {}
 
     @Override
-    public void showPlayerInfo() {
+    public void showGameInfo() {
         //Do nothing
     }
 

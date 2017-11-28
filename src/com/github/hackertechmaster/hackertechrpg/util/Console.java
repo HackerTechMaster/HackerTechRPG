@@ -10,4 +10,8 @@ public class Console {
     public static void println(String message) {
         System.out.println(message);
     }
+
+    public static void newline() {
+        System.out.println();
+    }
 }
