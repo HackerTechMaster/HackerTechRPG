@@ -10,17 +10,6 @@ public abstract class AbstractNpc extends AbstractEntity {
     }
 
     /**
-     * @return 剩余货币
-     */
-    public abstract int getMoney();
-
-    /**
-     * 设置剩余货币
-     * @param cnt 新的货币数值
-     */
-    public abstract void setMoney(int cnt);
-
-    /**
      * @return 该NPC是否已经被激活
      */
     public abstract boolean isActive();

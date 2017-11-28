@@ -19,6 +19,6 @@ public class Tony extends Npc {
     }
 
     public Tony() {
-        super("Tony", Area.CYBERCAFE, 50, true, orders);
+        super("Tony", Area.CYBERCAFE, true, orders);
     }
 }

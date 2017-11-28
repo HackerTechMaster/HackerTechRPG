@@ -7,25 +7,17 @@ import com.github.hackertechmaster.hackertechrpg.interfaces.IOrderEntry;
 import java.util.List;
 
 public class Npc extends AbstractNpc {
-    private int money;
     private boolean active;
     private List<IOrderEntry> orders;
 
-    public Npc(String name, Area area, int money, boolean active, List<IOrderEntry> orders) {
+    public Npc(String name, Area area, List<IOrderEntry> orders) {
+        this(name, area, true, orders);
+    }
+
+    public Npc(String name, Area area, boolean active, List<IOrderEntry> orders) {
         super(name, area);
-        this.money = money;
         this.active = active;
         this.orders = orders;
-    }
-
-    @Override
-    public int getMoney() {
-        return money;
-    }
-
-    @Override
-    public void setMoney(int cnt) {
-        this.money = cnt;
     }
 
     @Override
