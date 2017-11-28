@@ -2,7 +2,7 @@ package com.github.hackertechmaster.hackertechrpg.ui;
 
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
-public final class MainUI implements GameUserInterface {
+public final class MainUI extends BaseUI {
     public static MainUI INSTANCE = new MainUI();
 
     private MainUI() {}
@@ -14,7 +14,12 @@ public final class MainUI implements GameUserInterface {
     }
 
     @Override
-    public void handleInput(int input) {
-        //
+    public void handleInput(char input) {
+        final boolean npcFound = showCartByNpcChar(input);
+        if(!npcFound) super.handleInput(input);
+    }
+
+    private boolean showCartByNpcChar(char npcChar) {
+        return false;
     }
 }
