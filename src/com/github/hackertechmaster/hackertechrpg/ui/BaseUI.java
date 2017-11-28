@@ -1,6 +1,8 @@
 package com.github.hackertechmaster.hackertechrpg.ui;
 
 import com.github.hackertechmaster.hackertechrpg.Launcher;
+import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
+import com.github.hackertechmaster.hackertechrpg.util.Console;
 
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
@@ -15,10 +17,13 @@ public abstract class BaseUI implements GameUserInterface {
     public void handleHelp() {
         println("[m] 地图  [i] 背包");
         println("[h] 帮助  [q] 退出");
+        println("[b] 回到上一级菜单");
+        start();
     }
 
     public void handleQuit() {
         println("退出游戏后所有进度都将丢失（暂无存档功能），确认退出请输入Y");
+        Console.skipRemainCharactersInSameLine();
         String inputStr = Launcher.scanner.nextLine();
         if(inputStr.equalsIgnoreCase("Y")) {
             Launcher.quit();
@@ -28,11 +33,16 @@ public abstract class BaseUI implements GameUserInterface {
     }
 
     public void handleMap() {
-        Launcher.gameMap.show();
+        MapUI.INSTANCE.start();
     }
 
     public void handleInventory() {
         Launcher.playerRegistry.getCurrentPlayer().getInventory().show();
+        start();
+    }
+
+    public void handleBack() {
+        EntryUI.INSTANCE.start();
     }
 
     public void handleDefault() {
@@ -55,6 +65,9 @@ public abstract class BaseUI implements GameUserInterface {
             case INVENTORY:
                 handleInventory();
                 break;
+            case BACK:
+                handleBack();
+                break;
             default:
                 handleDefault();
                 break;
@@ -63,7 +76,13 @@ public abstract class BaseUI implements GameUserInterface {
 
     @Override
     public void showGameInfo() {
+        println("=============================");
         Launcher.tick.showTimePassed();
-        Launcher.playerRegistry.getCurrentPlayer().show();
+        AbstractPlayer currentPlayer = Launcher.playerRegistry.getCurrentPlayer();
+        if(currentPlayer != null) {
+            String currentAreaName = currentPlayer.getArea().getAreaName();
+            println(String.format("当前所在地区: %s", currentAreaName));
+            currentPlayer.show();
+        }
     }
 }

@@ -48,8 +48,13 @@ public class CartUI extends BaseUI implements ICart {
 
     @Override
     public void showMenu() {
-        println("=== AllItems ===");
+        println("=== 黑科技RPG V1.0 交易界面 ===");
         charToOrder.forEach((ch, order) -> Console.println(String.format("[%c] %s", ch, nameToInfo.get(order.getItemName()))));
+    }
+
+    @Override
+    public void handleBack() {
+        MainUI.INSTANCE.start();
     }
 
     @Override
@@ -62,6 +67,7 @@ public class CartUI extends BaseUI implements ICart {
                 println("请输入数量");
                 IOrder.BusinessType businessType = order.getBusinessType();
                 AbstractPlayer player = Launcher.playerRegistry.getCurrentPlayer();
+                Console.skipRemainCharactersInSameLine();
                 int amount = Launcher.scanner.nextInt();
                 BusinessResult businessResult = BusinessResult.NOT_HANDLED;
                 if(businessType == BUYING) {
@@ -70,12 +76,12 @@ public class CartUI extends BaseUI implements ICart {
                     businessResult = purchaseItem(player, order, amount);
                 }
                 println(businessResult.getDescription());
+                start();
             } else {
                 super.handleInput(input);
             }
-        }
-        if(input == BACK) {
-            MainUI.INSTANCE.start();
+        } else {
+            super.handleInput(input);
         }
     }
 

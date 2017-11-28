@@ -9,11 +9,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MapUI extends BaseUI {
+    public static MapUI INSTANCE = new MapUI();
     private Map<Character, Area> charToArea = new HashMap<>();
+
+    private MapUI() {
+        //
+    }
+
+    @Override
+    public void handleBack() {
+        MainUI.INSTANCE.start();
+    }
 
     @Override
     public void showMenu() {
-        Console.println("=== Map ===");
+        Console.println("=== 黑科技RPG V1.0 地图界面 ===");
         int index = 0;
         for(Area area : Area.values()) {
             char ch = (char) (index+NUMBER_TO_CHAR_OFFSET);
@@ -30,6 +40,7 @@ public class MapUI extends BaseUI {
         if(areaFound) {
             GameMap.MoveResult moveResult = Launcher.gameMap.movePlayer(Launcher.playerRegistry.getCurrentPlayer(), area);
             Console.println(moveResult.getDescription());
+            start();
         } else {
             super.handleInput(input);
         }

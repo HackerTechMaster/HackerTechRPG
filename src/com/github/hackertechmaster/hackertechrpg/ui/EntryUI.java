@@ -1,6 +1,7 @@
 package com.github.hackertechmaster.hackertechrpg.ui;
 
 import com.github.hackertechmaster.hackertechrpg.Launcher;
+import com.github.hackertechmaster.hackertechrpg.util.Console;
 
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
@@ -18,7 +19,7 @@ public final class EntryUI extends BaseUI {
 
     @Override
     public void showMenu() {
-        println("=== 黑科技RPG V1.0 ===");
+        println("=== 黑科技RPG V1.0 初始界面 ===");
         println(String.format("[%c] 登录", LOGIN));
         println(String.format("[%c] 注册", REGISTER));
     }
@@ -26,6 +27,7 @@ public final class EntryUI extends BaseUI {
     @Override
     public void handleHelp() {
         println("[q] 退出");
+        start();
     }
 
     @Override
@@ -39,11 +41,17 @@ public final class EntryUI extends BaseUI {
     }
 
     @Override
+    public void handleBack() {
+        handleQuit();
+    }
+
+    @Override
     public void handleInput(char input) {
         String inputStr;
         switch (input) {
             case LOGIN:
                 println("请输入玩家名");
+                Console.skipRemainCharactersInSameLine();
                 inputStr = Launcher.scanner.nextLine();
                 if(Launcher.playerRegistry.loginWithName(inputStr)) {
                     println(String.format("登录成功，玩家 %s", inputStr));
@@ -55,6 +63,7 @@ public final class EntryUI extends BaseUI {
                 break;
             case REGISTER:
                 println("请输入玩家名");
+                Console.skipRemainCharactersInSameLine();
                 inputStr = Launcher.scanner.nextLine();
                 if(Launcher.playerRegistry.register(inputStr)) {
                     println(String.format("注册成功，新增玩家 %s", inputStr));

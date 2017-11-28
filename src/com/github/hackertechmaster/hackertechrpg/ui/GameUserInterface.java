@@ -5,6 +5,7 @@ public interface GameUserInterface {
     char QUIT = 'q';
     char HELP = 'h';
     char INVENTORY = 'i';
+    char BACK = 'b';
     int NUMBER_TO_CHAR_OFFSET = '0';
 
     /**

@@ -2,6 +2,7 @@ package com.github.hackertechmaster.hackertechrpg.objects;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractInventory;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
+import com.github.hackertechmaster.hackertechrpg.util.Console;
 
 public class Player extends AbstractPlayer {
     private static final int ENERGY_CAPACITY = 20;
@@ -51,6 +52,7 @@ public class Player extends AbstractPlayer {
 
     @Override
     public void show() {
-        //
+        Console.println(String.format("玩家名：%s | 体力： %d/%d | 节操： %d",
+                getName(), getEnergyAvailable(), getEnergyCapacity(), getMoney()));
     }
 }

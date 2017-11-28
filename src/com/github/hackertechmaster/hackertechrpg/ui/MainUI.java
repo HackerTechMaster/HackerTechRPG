@@ -20,19 +20,26 @@ public final class MainUI extends BaseUI {
 
     @Override
     public void showMenu() {
-        println("=== 黑科技RPG V1.0 ===");
+        println("=== 黑科技RPG V1.0 主界面 ===");
         List<AbstractNpc> npcList = Launcher.npcRegistry.getNpcsInArea(Launcher.playerRegistry.getCurrentPlayer().getArea());
-        charToNpc = IntStream.range(0, npcList.size())
-                .boxed()
-                .collect(Collectors.toMap(i -> (char)(i+NUMBER_TO_CHAR_OFFSET), npcList::get));
-        charToNpc.forEach((ch, npc) -> Console.println(String.format("[%c] %s", ch, npc.getName())));
+        if(npcList.size() > 0) {
+            charToNpc = IntStream.range(0, npcList.size())
+                    .boxed()
+                    .collect(Collectors.toMap(i -> (char)(i+NUMBER_TO_CHAR_OFFSET), npcList::get));
+            charToNpc.forEach((ch, npc) -> Console.println(String.format("[%c] %s", ch, npc.getName())));
+        } else {
+            println("当前地区没有NPC");
+        }
     }
 
     @Override
     public void handleInput(char input) {
         final boolean npcFound = charToNpc.containsKey(input);
-        if(!npcFound) super.handleInput(input);
-        AbstractNpc npc = charToNpc.get(input);
-        CartUI.of(npc).start();
+        if (npcFound) {
+            AbstractNpc npc = charToNpc.get(input);
+            CartUI.of(npc).start();
+        } else {
+            super.handleInput(input);
+        }
     }
 }

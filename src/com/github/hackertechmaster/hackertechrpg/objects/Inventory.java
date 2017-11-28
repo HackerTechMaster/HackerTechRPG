@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static com.github.hackertechmaster.hackertechrpg.util.Console.newline;
 import static com.github.hackertechmaster.hackertechrpg.util.Console.print;
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
@@ -201,11 +202,12 @@ public class Inventory extends AbstractInventory {
 
     @Override
     public void show() {
-        println("=== Inventory ===");
+        println("==| 背包 |==");
         slots.forEach((key, item) -> {
             final int index = key;
             print(String.format("[%d] ", index));
             item.show();
+            newline();
         });
     }
 }

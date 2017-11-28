@@ -1,5 +1,7 @@
 package com.github.hackertechmaster.hackertechrpg.util;
 
+import com.github.hackertechmaster.hackertechrpg.Launcher;
+
 public class Console {
     private Console() {}
 
@@ -13,5 +15,9 @@ public class Console {
 
     public static void newline() {
         System.out.println();
+    }
+
+    public static void skipRemainCharactersInSameLine() {
+        Launcher.scanner.nextLine();
     }
 }
