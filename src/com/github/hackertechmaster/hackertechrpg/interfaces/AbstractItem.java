@@ -21,10 +21,20 @@ public abstract class AbstractItem implements IPrintable {
      * 枚举类，物品类型
      */
     public enum ItemType {
-        VEGETABLE,
-        FRUIT,
-        TOOL,
-        DRINK
+        VEGETABLE("蔬菜"),
+        FRUIT("水果"),
+        TOOL("工具"),
+        DRINK("饮料");
+
+        private String description;
+
+        ItemType(String description) {
+            this.description = description;
+        }
+
+        public String getDescription() {
+            return description;
+        }
     }
 
     /**

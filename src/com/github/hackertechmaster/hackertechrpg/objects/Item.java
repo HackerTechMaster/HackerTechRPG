@@ -17,6 +17,6 @@ public class Item extends AbstractItem {
 
     @Override
     public void show() {
-        Console.print(String.format(" 名称：%s | 类型：%s | %d/%d", getName(), getType(), stackAvailable(), stackCapacity()));
+        Console.print(String.format(" 名称：%s | 类型：%s | %d/%d", getName(), getType().getDescription(), stackAvailable(), stackCapacity()));
     }
 }
