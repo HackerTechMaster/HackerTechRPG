@@ -19,13 +19,15 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class Launcher {
+    public static final long TICK_PER_SECONDS = 3;
+
     public static PlayerRegistry playerRegistry;
     public static ItemRegistry itemRegistry;
     public static NpcRegistry npcRegistry;
     public static GameMap gameMap;
     public static Tick tick;
     public static Scanner scanner;
-    private static final ScheduledExecutorService executor;
+    private static ScheduledExecutorService executor;
 
     static {
         playerRegistry = new PlayerRegistry();
@@ -45,22 +47,12 @@ public class Launcher {
     }
 
     public static void main(String[] args) {
-        //显示程序主入口菜单（注册/登录）
         EntryUI.INSTANCE.start();
     }
 
     public static void tickStart() {
-        //登陆后新开一个线程，定期执行handleTickEvent
-        executor.scheduleAtFixedRate(() -> tick.handleTickEvent(), 0, 1, TimeUnit.SECONDS);
-    }
-
-    //FIXME not working properly
-    public static void tickPause() {
-        try {
-            executor.awaitTermination(1, TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        executor = Executors.newScheduledThreadPool(1);
+        executor.scheduleAtFixedRate(() -> tick.handleTickEvent(), 0, TICK_PER_SECONDS, TimeUnit.SECONDS);
     }
 
     public static void tickStop() {
