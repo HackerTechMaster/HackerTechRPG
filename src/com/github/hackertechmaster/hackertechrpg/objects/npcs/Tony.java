@@ -1,7 +1,7 @@
 package com.github.hackertechmaster.hackertechrpg.objects.npcs;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.IOrder;
-import com.github.hackertechmaster.hackertechrpg.objects.Area;
+import com.github.hackertechmaster.hackertechrpg.enums.Area;
 import com.github.hackertechmaster.hackertechrpg.objects.Npc;
 import com.github.hackertechmaster.hackertechrpg.objects.Order;
 

@@ -1,6 +1,6 @@
 package com.github.hackertechmaster.hackertechrpg.interfaces;
 
-import com.github.hackertechmaster.hackertechrpg.objects.Area;
+import com.github.hackertechmaster.hackertechrpg.enums.Area;
 
 public abstract class AbstractEntity implements IEntity, IPrintable {
     private final String name;

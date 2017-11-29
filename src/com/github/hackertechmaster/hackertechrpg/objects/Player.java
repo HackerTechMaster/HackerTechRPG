@@ -1,5 +1,6 @@
 package com.github.hackertechmaster.hackertechrpg.objects;
 
+import com.github.hackertechmaster.hackertechrpg.enums.Area;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractEntity;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractInventory;
 import com.github.hackertechmaster.hackertechrpg.util.Console;

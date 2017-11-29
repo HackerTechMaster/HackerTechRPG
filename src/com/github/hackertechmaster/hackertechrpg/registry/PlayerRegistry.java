@@ -1,7 +1,7 @@
 package com.github.hackertechmaster.hackertechrpg.registry;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.IPrintable;
-import com.github.hackertechmaster.hackertechrpg.objects.Area;
+import com.github.hackertechmaster.hackertechrpg.enums.Area;
 import com.github.hackertechmaster.hackertechrpg.objects.Inventory;
 import com.github.hackertechmaster.hackertechrpg.objects.Player;
 

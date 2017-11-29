@@ -1,6 +1,6 @@
 package com.github.hackertechmaster.hackertechrpg.registry;
 
-import com.github.hackertechmaster.hackertechrpg.objects.Area;
+import com.github.hackertechmaster.hackertechrpg.enums.Area;
 import com.github.hackertechmaster.hackertechrpg.objects.Npc;
 
 import java.util.*;

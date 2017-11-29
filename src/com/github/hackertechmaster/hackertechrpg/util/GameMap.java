@@ -1,6 +1,9 @@
-package com.github.hackertechmaster.hackertechrpg.objects;
+package com.github.hackertechmaster.hackertechrpg.util;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.IPrintable;
+import com.github.hackertechmaster.hackertechrpg.enums.Area;
+import com.github.hackertechmaster.hackertechrpg.objects.Npc;
+import com.github.hackertechmaster.hackertechrpg.objects.Player;
 import com.github.hackertechmaster.hackertechrpg.registry.PlayerRegistry;
 
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;

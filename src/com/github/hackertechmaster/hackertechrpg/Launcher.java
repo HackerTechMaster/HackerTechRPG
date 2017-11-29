@@ -1,6 +1,6 @@
 package com.github.hackertechmaster.hackertechrpg;
 
-import com.github.hackertechmaster.hackertechrpg.objects.GameMap;
+import com.github.hackertechmaster.hackertechrpg.util.GameMap;
 import com.github.hackertechmaster.hackertechrpg.objects.items.Apple;
 import com.github.hackertechmaster.hackertechrpg.objects.items.Knife;
 import com.github.hackertechmaster.hackertechrpg.objects.items.OrangeJuice;

@@ -1,4 +1,4 @@
-package com.github.hackertechmaster.hackertechrpg.objects;
+package com.github.hackertechmaster.hackertechrpg.enums;
 
 public enum Area {
     CYBERCAFE("健民网吧"),

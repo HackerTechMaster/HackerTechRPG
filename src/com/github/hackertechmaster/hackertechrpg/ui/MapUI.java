@@ -1,8 +1,8 @@
 package com.github.hackertechmaster.hackertechrpg.ui;
 
 import com.github.hackertechmaster.hackertechrpg.Launcher;
-import com.github.hackertechmaster.hackertechrpg.objects.Area;
-import com.github.hackertechmaster.hackertechrpg.objects.GameMap;
+import com.github.hackertechmaster.hackertechrpg.enums.Area;
+import com.github.hackertechmaster.hackertechrpg.util.GameMap;
 import com.github.hackertechmaster.hackertechrpg.util.Console;
 
 import java.util.HashMap;
