@@ -1,6 +1,5 @@
 package com.github.hackertechmaster.hackertechrpg;
 
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerRegistry;
 import com.github.hackertechmaster.hackertechrpg.objects.GameMap;
 import com.github.hackertechmaster.hackertechrpg.objects.items.Apple;
 import com.github.hackertechmaster.hackertechrpg.objects.items.Knife;
@@ -15,14 +14,12 @@ import com.github.hackertechmaster.hackertechrpg.ui.EntryUI;
 import com.github.hackertechmaster.hackertechrpg.util.Tick;
 
 import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class Launcher {
-    public static AbstractPlayerRegistry playerRegistry;
+    public static PlayerRegistry playerRegistry;
     public static ItemRegistry itemRegistry;
     public static NpcRegistry npcRegistry;
     public static GameMap gameMap;

@@ -1,7 +1,7 @@
 package com.github.hackertechmaster.hackertechrpg.util;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerRegistry;
+import com.github.hackertechmaster.hackertechrpg.registry.PlayerRegistry;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,9 +11,9 @@ public class Tick {
     //秒为单位
     private final long startTick;
     private long currentTick;
-    private final AbstractPlayerRegistry playerManager;
+    private final PlayerRegistry playerManager;
 
-    public Tick(AbstractPlayerRegistry playerManager) {
+    public Tick(PlayerRegistry playerManager) {
         this.startTick = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
         this.currentTick = startTick;
         this.playerManager = playerManager;

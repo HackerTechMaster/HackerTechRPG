@@ -2,8 +2,8 @@ package com.github.hackertechmaster.hackertechrpg.objects;
 
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractNpc;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayerRegistry;
 import com.github.hackertechmaster.hackertechrpg.interfaces.IPrintable;
+import com.github.hackertechmaster.hackertechrpg.registry.PlayerRegistry;
 
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
@@ -26,9 +26,9 @@ public class GameMap implements IPrintable {
         }
     }
 
-    private final AbstractPlayerRegistry playerManager;
+    private final PlayerRegistry playerManager;
 
-    public GameMap(AbstractPlayerRegistry playerManager) {
+    public GameMap(PlayerRegistry playerManager) {
         this.playerManager = playerManager;
     }
 

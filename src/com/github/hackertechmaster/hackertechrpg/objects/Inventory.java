@@ -10,9 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static com.github.hackertechmaster.hackertechrpg.util.Console.newline;
-import static com.github.hackertechmaster.hackertechrpg.util.Console.print;
-import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
+import static com.github.hackertechmaster.hackertechrpg.util.Console.*;
 
 public class Inventory extends AbstractInventory {
     private static final int INVENTORY_NORMAL_SIZE = 5;
