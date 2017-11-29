@@ -21,10 +21,8 @@ public class Tick {
     }
 
     public void handleTickEvent() {
-        this.currentTick += Launcher.TICK_PER_SECONDS;
+        this.currentTick += 1;
         AbstractPlayer player = playerManager.getCurrentPlayer();
-        //Restore energy
-        player.setEnergyAvailable(player.getEnergyCapacity() + 1);
         final int previousEnergy = player.getEnergyAvailable();
         if(previousEnergy < player.getEnergyCapacity()) {
             player.setEnergyAvailable(previousEnergy + 1);
@@ -37,7 +35,7 @@ public class Tick {
     }
 
     public void showTimePassed() {
-        long secondsPassed = currentTick-startTick;
-        println(String.format("距游戏开始已经过去了%d秒", secondsPassed));
+        long ticksPassed = currentTick-startTick;
+        println(String.format("距游戏开始已经过去了%d刻(1刻等于%d秒)", ticksPassed, Launcher.TICK_PER_SECONDS));
     }
 }
