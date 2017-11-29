@@ -1,10 +1,10 @@
 package com.github.hackertechmaster.hackertechrpg.ui;
 
 import com.github.hackertechmaster.hackertechrpg.Launcher;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractNpc;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
 import com.github.hackertechmaster.hackertechrpg.interfaces.ICart;
 import com.github.hackertechmaster.hackertechrpg.interfaces.IOrder;
+import com.github.hackertechmaster.hackertechrpg.objects.Npc;
+import com.github.hackertechmaster.hackertechrpg.objects.Player;
 import com.github.hackertechmaster.hackertechrpg.util.Console;
 
 import java.util.List;
@@ -20,14 +20,14 @@ public class CartUI extends BaseUI implements ICart {
     private static final char BACK = 'b'; //Back to MainUI
     private Map<Character, IOrder> charToOrder;
     private Map<String, String> nameToInfo;
-    private final AbstractNpc npc;
+    private final Npc npc;
 
-    private CartUI(AbstractNpc npc) {
+    private CartUI(Npc npc) {
         this.npc = npc;
         refreshShopData();
     }
 
-    public static CartUI of(AbstractNpc npc) {
+    public static CartUI of(Npc npc) {
         return new CartUI(npc);
     }
 
@@ -66,7 +66,7 @@ public class CartUI extends BaseUI implements ICart {
             if(hasOrder) {
                 println("请输入数量");
                 IOrder.BusinessType businessType = order.getBusinessType();
-                AbstractPlayer player = Launcher.playerRegistry.getCurrentPlayer();
+                Player player = Launcher.playerRegistry.getCurrentPlayer();
                 Console.skipRemainCharactersInSameLine();
                 int amount = Launcher.scanner.nextInt();
                 BusinessResult businessResult = BusinessResult.NOT_HANDLED;
@@ -91,7 +91,7 @@ public class CartUI extends BaseUI implements ICart {
     }
 
     @Override
-    public BusinessResult purchaseItem(AbstractPlayer player, IOrder order, int amount) {
+    public BusinessResult purchaseItem(Player player, IOrder order, int amount) {
         String itemName = order.getItemName();
         if(!npc.getOrders().contains(order)) return BusinessResult.ITEM_NOT_FOUND;
         int sellingAmount = order.getAmount();
@@ -123,7 +123,7 @@ public class CartUI extends BaseUI implements ICart {
     }
 
     @Override
-    public BusinessResult sellItem(AbstractPlayer player, IOrder order, int amount) {
+    public BusinessResult sellItem(Player player, IOrder order, int amount) {
         String itemName = order.getItemName();
         if(!npc.getOrders().contains(order)) return BusinessResult.ITEM_NOT_FOUND;
         int buyingAmount = order.getAmount();

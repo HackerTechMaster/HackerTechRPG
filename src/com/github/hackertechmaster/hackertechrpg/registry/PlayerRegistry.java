@@ -1,6 +1,5 @@
 package com.github.hackertechmaster.hackertechrpg.registry;
 
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
 import com.github.hackertechmaster.hackertechrpg.interfaces.IPrintable;
 import com.github.hackertechmaster.hackertechrpg.objects.Area;
 import com.github.hackertechmaster.hackertechrpg.objects.Inventory;
@@ -12,8 +11,8 @@ import java.util.Map;
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public class PlayerRegistry implements IPrintable {
-    private AbstractPlayer currentPlayer;
-    private final Map<String, AbstractPlayer> playerMap = new HashMap<>();
+    private Player currentPlayer;
+    private final Map<String, Player> playerMap = new HashMap<>();
 
     public boolean register(String name) {
         if(playerMap.containsKey(name)) {
@@ -33,11 +32,11 @@ public class PlayerRegistry implements IPrintable {
         }
     }
 
-    public AbstractPlayer getCurrentPlayer() {
+    public Player getCurrentPlayer() {
         return currentPlayer;
     }
 
-    public AbstractPlayer findPlayerByName(String name) {
+    public Player findPlayerByName(String name) {
         return playerMap.get(name);
     }
 

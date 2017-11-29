@@ -1,7 +1,5 @@
 package com.github.hackertechmaster.hackertechrpg.objects;
 
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractNpc;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
 import com.github.hackertechmaster.hackertechrpg.interfaces.IPrintable;
 import com.github.hackertechmaster.hackertechrpg.registry.PlayerRegistry;
 
@@ -32,7 +30,7 @@ public class GameMap implements IPrintable {
         this.playerManager = playerManager;
     }
 
-    public MoveResult movePlayer(AbstractPlayer player, Area toArea) {
+    public MoveResult movePlayer(Player player, Area toArea) {
         final int energyAvailable = player.getEnergyAvailable();
         if(energyAvailable >= MOVE_ENERGY) {
             final Area fromArea = player.getArea();
@@ -48,7 +46,7 @@ public class GameMap implements IPrintable {
         }
     }
 
-    public void moveNpc(AbstractNpc npc, Area toArea) {
+    public void moveNpc(Npc npc, Area toArea) {
         npc.setArea(toArea);
     }
 
@@ -59,7 +57,7 @@ public class GameMap implements IPrintable {
             println(area.getAreaName());
         }
 
-        AbstractPlayer currentPlayer = playerManager.getCurrentPlayer();
+        Player currentPlayer = playerManager.getCurrentPlayer();
         if(currentPlayer != null) {
             String currentAreaName = currentPlayer.getArea().getAreaName();
             println(String.format("当前所在地区: %s", currentAreaName));

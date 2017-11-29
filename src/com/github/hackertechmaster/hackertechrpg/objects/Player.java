@@ -1,10 +1,10 @@
 package com.github.hackertechmaster.hackertechrpg.objects;
 
+import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractEntity;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractInventory;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
 import com.github.hackertechmaster.hackertechrpg.util.Console;
 
-public class Player extends AbstractPlayer {
+public class Player extends AbstractEntity {
     private static final int ENERGY_CAPACITY = 20;
 
     private int money;
@@ -20,27 +20,22 @@ public class Player extends AbstractPlayer {
         this.inventory = inventory;
     }
 
-    @Override
     public int getMoney() {
         return money;
     }
 
-    @Override
     public void setMoney(int cnt) {
         this.money = cnt;
     }
 
-    @Override
     public int getEnergyAvailable() {
         return energyAvailable;
     }
 
-    @Override
     public void setEnergyAvailable(int cnt) {
         this.energyAvailable = cnt>energyCapacity ? energyCapacity : cnt;
     }
 
-    @Override
     public int getEnergyCapacity() {
         return energyCapacity;
     }

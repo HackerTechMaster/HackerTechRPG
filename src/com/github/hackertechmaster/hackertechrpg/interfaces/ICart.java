@@ -1,5 +1,7 @@
 package com.github.hackertechmaster.hackertechrpg.interfaces;
 
+import com.github.hackertechmaster.hackertechrpg.objects.Player;
+
 import java.util.Map;
 
 public interface ICart {
@@ -36,7 +38,7 @@ public interface ICart {
      * @param amount 购买数量
      * @return 购买结果，返回常量
      */
-    BusinessResult purchaseItem(AbstractPlayer player, IOrder item, int amount);
+    BusinessResult purchaseItem(Player player, IOrder item, int amount);
 
     /**
      * 出售物品
@@ -45,5 +47,5 @@ public interface ICart {
      * @param amount 购买数量
      * @return 出售结果，返回常量
      */
-    BusinessResult sellItem(AbstractPlayer player, IOrder item, int amount);
+    BusinessResult sellItem(Player player, IOrder item, int amount);
 }

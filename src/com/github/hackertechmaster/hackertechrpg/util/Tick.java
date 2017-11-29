@@ -1,7 +1,7 @@
 package com.github.hackertechmaster.hackertechrpg.util;
 
 import com.github.hackertechmaster.hackertechrpg.Launcher;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
+import com.github.hackertechmaster.hackertechrpg.objects.Player;
 import com.github.hackertechmaster.hackertechrpg.registry.PlayerRegistry;
 
 import java.util.concurrent.TimeUnit;
@@ -22,7 +22,7 @@ public class Tick {
 
     public void handleTickEvent() {
         this.currentTick += 1;
-        AbstractPlayer player = playerManager.getCurrentPlayer();
+        Player player = playerManager.getCurrentPlayer();
         final int previousEnergy = player.getEnergyAvailable();
         if(previousEnergy < player.getEnergyCapacity()) {
             player.setEnergyAvailable(previousEnergy + 1);

@@ -1,12 +1,12 @@
 package com.github.hackertechmaster.hackertechrpg.objects;
 
+import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractEntity;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractInventory;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractNpc;
 import com.github.hackertechmaster.hackertechrpg.interfaces.IOrder;
 
 import java.util.List;
 
-public class Npc extends AbstractNpc {
+public class Npc extends AbstractEntity {
     private boolean active;
     private List<IOrder> orders;
 
@@ -20,12 +20,10 @@ public class Npc extends AbstractNpc {
         this.orders = orders;
     }
 
-    @Override
     public boolean isActive() {
         return active;
     }
 
-    @Override
     public List<IOrder> getOrders() {
         return orders;
     }
@@ -34,7 +32,6 @@ public class Npc extends AbstractNpc {
         this.orders = orders;
     }
 
-    @Override
     public void setActive(boolean active) {
         this.active = active;
     }

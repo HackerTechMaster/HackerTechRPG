@@ -1,7 +1,7 @@
 package com.github.hackertechmaster.hackertechrpg.ui;
 
 import com.github.hackertechmaster.hackertechrpg.Launcher;
-import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractPlayer;
+import com.github.hackertechmaster.hackertechrpg.objects.Player;
 import com.github.hackertechmaster.hackertechrpg.util.Console;
 
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
@@ -80,7 +80,7 @@ public abstract class BaseUI implements GameUserInterface {
     public void showGameInfo() {
         println("=============================");
         Launcher.tick.showTimePassed();
-        AbstractPlayer currentPlayer = Launcher.playerRegistry.getCurrentPlayer();
+        Player currentPlayer = Launcher.playerRegistry.getCurrentPlayer();
         if(currentPlayer != null) {
             String currentAreaName = currentPlayer.getArea().getAreaName();
             println(String.format("当前所在地区: %s", currentAreaName));
