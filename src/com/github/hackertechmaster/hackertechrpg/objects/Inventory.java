@@ -15,10 +15,6 @@ import static com.github.hackertechmaster.hackertechrpg.util.Console.*;
 public class Inventory extends AbstractInventory {
     private static final int INVENTORY_NORMAL_SIZE = 5;
 
-    private static final int NO_MERGE = 0;
-    private static final int PARTIAL_MERGE = 1;
-    private static final int FULL_MERGE = 2;
-
     private final int size;
     private Map<Integer, AbstractItem> slots;
 
