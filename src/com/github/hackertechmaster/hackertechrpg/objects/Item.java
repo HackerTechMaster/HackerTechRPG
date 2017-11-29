@@ -12,7 +12,7 @@ public class Item extends AbstractItem {
 
     @Override
     public AbstractItem copy(int stackAvailable) {
-        return new Item(getName(), getType(), stackAvailable, stackCapacity());
+        return new Item(getName(), getType(), stackCapacity(), stackAvailable);
     }
 
     @Override
