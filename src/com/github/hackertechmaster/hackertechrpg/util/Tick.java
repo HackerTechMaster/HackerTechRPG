@@ -8,29 +8,35 @@ import java.util.concurrent.TimeUnit;
 import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public class Tick {
-    //毫秒为单位
-    private final long startTime;
-    private long currentTime;
+    //秒为单位
+    private final long startTick;
+    private long currentTick;
     private final AbstractPlayerRegistry playerManager;
 
     public Tick(AbstractPlayerRegistry playerManager) {
-        this.startTime = System.currentTimeMillis();
-        this.currentTime = startTime;
+        this.startTick = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
+        this.currentTick = startTick;
         this.playerManager = playerManager;
     }
 
     public void handleTickEvent() {
-        this.currentTime = System.currentTimeMillis();
+        this.currentTick += TimeUnit.SECONDS.toSeconds(1);
         AbstractPlayer player = playerManager.getCurrentPlayer();
+        //Restore energy
         player.setEnergyAvailable(player.getEnergyCapacity() + 1);
         final int previousEnergy = player.getEnergyAvailable();
         if(previousEnergy < player.getEnergyCapacity()) {
             player.setEnergyAvailable(previousEnergy + 1);
         }
+        //Add money
+        int moneyBefore = player.getMoney();
+        if(moneyBefore < 300) {
+            player.setMoney(moneyBefore+1);
+        }
     }
 
     public void showTimePassed() {
-        long secondsPassed = TimeUnit.MILLISECONDS.toSeconds(currentTime-startTime);
+        long secondsPassed = currentTick-startTick;
         println(String.format("距游戏开始已经过去了%d秒", secondsPassed));
     }
 }

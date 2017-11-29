@@ -43,6 +43,7 @@ public abstract class BaseUI implements GameUserInterface {
     }
 
     public void handleBack() {
+        Launcher.tickPause();
         EntryUI.INSTANCE.start();
     }
 

@@ -55,6 +55,7 @@ public final class EntryUI extends BaseUI {
                 inputStr = Launcher.scanner.nextLine();
                 if(Launcher.playerRegistry.loginWithName(inputStr)) {
                     println(String.format("登录成功，玩家 %s", inputStr));
+                    Launcher.tickStart();
                     MainUI.INSTANCE.start();
                 } else {
                     println("该玩家名不存在");
