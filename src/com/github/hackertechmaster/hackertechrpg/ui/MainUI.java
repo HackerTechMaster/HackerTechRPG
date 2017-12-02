@@ -2,15 +2,12 @@ package com.github.hackertechmaster.hackertechrpg.ui;
 
 import com.github.hackertechmaster.hackertechrpg.Launcher;
 import com.github.hackertechmaster.hackertechrpg.objects.Npc;
-import com.github.hackertechmaster.hackertechrpg.util.Console;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
-import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public final class MainUI extends BaseUI {
     private Map<Character, Npc> charToNpc = new HashMap<>();
@@ -20,15 +17,15 @@ public final class MainUI extends BaseUI {
 
     @Override
     public void showMenu() {
-        println("=== 黑科技RPG V1.0 主界面 ===");
+        System.out.println("=== 黑科技RPG V1.0 主界面 ===");
         List<Npc> npcList = Launcher.npcRegistry.getNpcsInArea(Launcher.playerRegistry.getCurrentPlayer().getArea());
         if(npcList.size() > 0) {
             charToNpc = IntStream.range(0, npcList.size())
                     .boxed()
                     .collect(Collectors.toMap(i -> (char)(i+NUMBER_TO_CHAR_OFFSET), npcList::get));
-            charToNpc.forEach((ch, npc) -> Console.println(String.format("[%c] %s", ch, npc.getName())));
+            charToNpc.forEach((ch, npc) -> System.out.println(String.format("[%c] %s", ch, npc.getName())));
         } else {
-            println("当前地区没有NPC");
+            System.out.println("当前地区没有NPC");
         }
     }
 

@@ -3,7 +3,6 @@ package com.github.hackertechmaster.hackertechrpg.objects;
 import com.github.hackertechmaster.hackertechrpg.enums.Area;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractEntity;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractInventory;
-import com.github.hackertechmaster.hackertechrpg.util.Console;
 
 public class Player extends AbstractEntity {
     private static final int ENERGY_CAPACITY = 20;
@@ -48,7 +47,7 @@ public class Player extends AbstractEntity {
 
     @Override
     public void show() {
-        Console.println(String.format("玩家名：%s | 体力： %d/%d | 节操： %d",
+        System.out.println(String.format("玩家名：%s | 体力： %d/%d | 节操： %d",
                 getName(), getEnergyAvailable(), getEnergyCapacity(), getMoney()));
     }
 }

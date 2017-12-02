@@ -4,7 +4,6 @@ import com.github.hackertechmaster.hackertechrpg.enums.Area;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractEntity;
 import com.github.hackertechmaster.hackertechrpg.interfaces.AbstractInventory;
 import com.github.hackertechmaster.hackertechrpg.interfaces.IDamageable;
-import com.github.hackertechmaster.hackertechrpg.util.Console;
 
 public class Mob extends AbstractEntity implements IDamageable {
     private int health;
@@ -23,7 +22,7 @@ public class Mob extends AbstractEntity implements IDamageable {
 
     @Override
     public void show() {
-        Console.println(String.format("怪物名：%s | HP： %d/%d",
+        System.out.println(String.format("怪物名：%s | HP： %d/%d",
                 getName(), getHealth(), getHealthLimit()));
     }
 

@@ -1,6 +1,5 @@
 package com.github.hackertechmaster.hackertechrpg;
 
-import com.github.hackertechmaster.hackertechrpg.util.GameMap;
 import com.github.hackertechmaster.hackertechrpg.objects.items.Apple;
 import com.github.hackertechmaster.hackertechrpg.objects.items.Knife;
 import com.github.hackertechmaster.hackertechrpg.objects.items.OrangeJuice;
@@ -11,8 +10,11 @@ import com.github.hackertechmaster.hackertechrpg.registry.ItemRegistry;
 import com.github.hackertechmaster.hackertechrpg.registry.NpcRegistry;
 import com.github.hackertechmaster.hackertechrpg.registry.PlayerRegistry;
 import com.github.hackertechmaster.hackertechrpg.ui.EntryUI;
+import com.github.hackertechmaster.hackertechrpg.util.GameMap;
+import com.github.hackertechmaster.hackertechrpg.util.GameScanner;
 import com.github.hackertechmaster.hackertechrpg.util.Tick;
 
+import java.io.Console;
 import java.util.Scanner;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -28,8 +30,10 @@ public class Launcher {
     public static Tick tick;
     public static Scanner scanner;
     private static ScheduledExecutorService executor;
+    public static GameScanner gameScanner;
 
     static {
+        gameScanner = new GameScanner();
         playerRegistry = new PlayerRegistry();
         itemRegistry = new ItemRegistry();
         npcRegistry = new NpcRegistry();

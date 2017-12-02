@@ -1,12 +1,10 @@
 package com.github.hackertechmaster.hackertechrpg.util;
 
-import com.github.hackertechmaster.hackertechrpg.interfaces.IPrintable;
 import com.github.hackertechmaster.hackertechrpg.enums.Area;
+import com.github.hackertechmaster.hackertechrpg.interfaces.IPrintable;
 import com.github.hackertechmaster.hackertechrpg.objects.Npc;
 import com.github.hackertechmaster.hackertechrpg.objects.Player;
 import com.github.hackertechmaster.hackertechrpg.registry.PlayerRegistry;
-
-import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public class GameMap implements IPrintable {
     private static final int MOVE_ENERGY = 5;
@@ -55,15 +53,15 @@ public class GameMap implements IPrintable {
 
     @Override
     public void show() {
-        println("=== GameMap ===");
+        System.out.println("=== GameMap ===");
         for(Area area : Area.values()) {
-            println(area.getAreaName());
+            System.out.println(area.getAreaName());
         }
 
         Player currentPlayer = playerManager.getCurrentPlayer();
         if(currentPlayer != null) {
             String currentAreaName = currentPlayer.getArea().getAreaName();
-            println(String.format("当前所在地区: %s", currentAreaName));
+            System.out.println(String.format("当前所在地区: %s", currentAreaName));
         }
     }
 }

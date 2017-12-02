@@ -6,8 +6,6 @@ import com.github.hackertechmaster.hackertechrpg.registry.PlayerRegistry;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
-
 public class Tick {
     //秒为单位
     private final long startTick;
@@ -36,6 +34,6 @@ public class Tick {
 
     public void showTimePassed() {
         long ticksPassed = currentTick-startTick;
-        println(String.format("距游戏开始已经过去了%d刻(1刻等于%d秒)", ticksPassed, Launcher.TICK_PER_SECONDS));
+        System.out.println(String.format("距游戏开始已经过去了%d刻(1刻等于%d秒)", ticksPassed, Launcher.TICK_PER_SECONDS));
     }
 }

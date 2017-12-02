@@ -3,7 +3,6 @@ package com.github.hackertechmaster.hackertechrpg.ui;
 import com.github.hackertechmaster.hackertechrpg.Launcher;
 import com.github.hackertechmaster.hackertechrpg.enums.Area;
 import com.github.hackertechmaster.hackertechrpg.util.GameMap;
-import com.github.hackertechmaster.hackertechrpg.util.Console;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,11 +22,11 @@ public class MapUI extends BaseUI {
 
     @Override
     public void showMenu() {
-        Console.println("=== 黑科技RPG V1.0 地图界面 ===");
+        System.out.println("=== 黑科技RPG V1.0 地图界面 ===");
         int index = 0;
         for(Area area : Area.values()) {
             char ch = (char) (index+NUMBER_TO_CHAR_OFFSET);
-            Console.println(String.format("[%c] %s (该地区有%d个NPC)",
+            System.out.println(String.format("[%c] %s (该地区有%d个NPC)",
                     ch, area.getAreaName(), Launcher.npcRegistry.getNpcsInArea(area).size()));
             charToArea.put(ch, area);
             index++;
@@ -40,7 +39,7 @@ public class MapUI extends BaseUI {
         final boolean areaFound = area != null;
         if(areaFound) {
             GameMap.MoveResult moveResult = Launcher.gameMap.movePlayer(Launcher.playerRegistry.getCurrentPlayer(), area);
-            Console.println(moveResult.getDescription());
+            System.out.println(moveResult.getDescription());
             if(moveResult == GameMap.MoveResult.OK) {
                 handleBack();
             } else {
@@ -53,6 +52,6 @@ public class MapUI extends BaseUI {
 
     @Override
     public void handleMap() {
-        Console.println("你已经在地图界面啦~");
+        System.out.println("你已经在地图界面啦~");
     }
 }

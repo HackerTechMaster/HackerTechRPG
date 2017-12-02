@@ -5,16 +5,15 @@ import com.github.hackertechmaster.hackertechrpg.interfaces.ICart;
 import com.github.hackertechmaster.hackertechrpg.interfaces.IOrder;
 import com.github.hackertechmaster.hackertechrpg.objects.Npc;
 import com.github.hackertechmaster.hackertechrpg.objects.Player;
-import com.github.hackertechmaster.hackertechrpg.util.Console;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static com.github.hackertechmaster.hackertechrpg.Launcher.gameScanner;
 import static com.github.hackertechmaster.hackertechrpg.interfaces.IOrder.BusinessType.BUYING;
 import static com.github.hackertechmaster.hackertechrpg.interfaces.IOrder.BusinessType.SELLING;
-import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public class CartUI extends BaseUI implements ICart {
     private static final char BACK = 'b'; //Back to MainUI
@@ -48,8 +47,8 @@ public class CartUI extends BaseUI implements ICart {
 
     @Override
     public void showMenu() {
-        println("=== 黑科技RPG V1.0 交易界面 ===");
-        charToOrder.forEach((ch, order) -> Console.println(String.format("[%c] %s", ch, nameToInfo.get(order.getItemName()))));
+        System.out.println("=== 黑科技RPG V1.0 交易界面 ===");
+        charToOrder.forEach((ch, order) -> System.out.println(String.format("[%c] %s", ch, nameToInfo.get(order.getItemName()))));
     }
 
     @Override
@@ -64,18 +63,16 @@ public class CartUI extends BaseUI implements ICart {
             IOrder order = charToOrder.get(input);
             final boolean hasOrder = order != null;
             if(hasOrder) {
-                println("请输入数量");
                 IOrder.BusinessType businessType = order.getBusinessType();
                 Player player = Launcher.playerRegistry.getCurrentPlayer();
-                Console.skipRemainCharactersInSameLine();
-                int amount = Launcher.scanner.nextInt();
+                int amount = Integer.parseInt(gameScanner.readLine("请输入数量"));
                 BusinessResult businessResult = BusinessResult.NOT_HANDLED;
                 if(businessType == BUYING) {
                     businessResult = sellItem(player, order, amount);
                 } else if(businessType == SELLING) {
                     businessResult = purchaseItem(player, order, amount);
                 }
-                println(businessResult.getDescription());
+                System.out.println(businessResult.getDescription());
                 start();
             } else {
                 super.handleInput(input);

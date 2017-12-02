@@ -1,14 +1,13 @@
 package com.github.hackertechmaster.hackertechrpg.registry;
 
-import com.github.hackertechmaster.hackertechrpg.interfaces.IPrintable;
 import com.github.hackertechmaster.hackertechrpg.enums.Area;
+import com.github.hackertechmaster.hackertechrpg.interfaces.IPrintable;
 import com.github.hackertechmaster.hackertechrpg.objects.Inventory;
 import com.github.hackertechmaster.hackertechrpg.objects.Player;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
 
 public class PlayerRegistry implements IPrintable {
     private Player currentPlayer;
@@ -42,7 +41,7 @@ public class PlayerRegistry implements IPrintable {
 
     @Override
     public void show() {
-        println("=== AllPlayer ==");
-        playerMap.keySet().forEach(name -> println(String.format("[%s]", name)));
+        System.out.println("=== AllPlayer ==");
+        playerMap.keySet().forEach(name -> System.out.println(String.format("[%s]", name)));
     }
 }

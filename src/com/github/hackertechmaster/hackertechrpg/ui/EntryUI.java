@@ -1,9 +1,8 @@
 package com.github.hackertechmaster.hackertechrpg.ui;
 
 import com.github.hackertechmaster.hackertechrpg.Launcher;
-import com.github.hackertechmaster.hackertechrpg.util.Console;
 
-import static com.github.hackertechmaster.hackertechrpg.util.Console.println;
+import static com.github.hackertechmaster.hackertechrpg.Launcher.gameScanner;
 
 public final class EntryUI extends BaseUI {
     private static final char LOGIN = '0';
@@ -19,14 +18,14 @@ public final class EntryUI extends BaseUI {
 
     @Override
     public void showMenu() {
-        println("=== 黑科技RPG V1.0 初始界面 ===");
-        println(String.format("[%c] 登录", LOGIN));
-        println(String.format("[%c] 注册", REGISTER));
+        System.out.println("=== 黑科技RPG V1.0 初始界面 ===");
+        System.out.println(String.format("[%c] 登录", LOGIN));
+        System.out.println(String.format("[%c] 注册", REGISTER));
     }
 
     @Override
     public void handleHelp() {
-        println("[q] 退出");
+        System.out.println("[q] 退出");
         start();
     }
 
@@ -50,26 +49,22 @@ public final class EntryUI extends BaseUI {
         String inputStr;
         switch (input) {
             case LOGIN:
-                println("请输入玩家名");
-                Console.skipRemainCharactersInSameLine();
-                inputStr = Launcher.scanner.nextLine();
+                inputStr = gameScanner.readLine("请输入玩家名");
                 if(Launcher.playerRegistry.loginWithName(inputStr)) {
-                    println(String.format("登录成功，玩家 %s", inputStr));
+                    System.out.println(String.format("登录成功，玩家 %s", inputStr));
                     Launcher.tickStart();
                     MainUI.INSTANCE.start();
                 } else {
-                    println("该玩家名不存在");
+                    System.out.println("该玩家名不存在");
                     start();
                 }
                 break;
             case REGISTER:
-                println("请输入玩家名");
-                Console.skipRemainCharactersInSameLine();
-                inputStr = Launcher.scanner.nextLine();
+                inputStr = gameScanner.readLine("请输入玩家名");
                 if(Launcher.playerRegistry.register(inputStr)) {
-                    println(String.format("注册成功，新增玩家 %s", inputStr));
+                    System.out.println(String.format("注册成功，新增玩家 %s", inputStr));
                 } else {
-                    println("玩家名已存在，请重试");
+                    System.out.println("玩家名已存在，请重试");
                 }
                 start();
                 break;

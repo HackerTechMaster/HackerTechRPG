@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static com.github.hackertechmaster.hackertechrpg.util.Console.*;
-
 public class Inventory extends AbstractInventory {
     private static final int INVENTORY_NORMAL_SIZE = 5;
 
@@ -196,12 +194,12 @@ public class Inventory extends AbstractInventory {
 
     @Override
     public void show() {
-        println("==| 背包 |==");
+        System.out.println("==| 背包 |==");
         slots.forEach((key, item) -> {
             final int index = key;
-            print(String.format("[%d] ", index));
+            System.out.print(String.format("[%d] ", index));
             item.show();
-            newline();
+            System.out.println();
         });
     }
 }

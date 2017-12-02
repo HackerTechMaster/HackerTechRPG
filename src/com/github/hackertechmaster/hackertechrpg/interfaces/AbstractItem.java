@@ -1,7 +1,5 @@
 package com.github.hackertechmaster.hackertechrpg.interfaces;
 
-import static com.github.hackertechmaster.hackertechrpg.util.Console.print;
-
 public abstract class AbstractItem implements IPrintable {
     private int stackAvailable;
     private final ItemType type;
@@ -74,6 +72,6 @@ public abstract class AbstractItem implements IPrintable {
 
     @Override
     public void show() {
-        print(String.format("%s .. %d/%d", name, stackAvailable, stackCapacity));
+        System.out.print(String.format("%s .. %d/%d", name, stackAvailable, stackCapacity));
     }
 }
